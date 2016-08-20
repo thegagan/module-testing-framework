@@ -74,6 +74,10 @@ angular.module('coinioApp')
         templateUrl: 'views/account.html',
         controller: 'AccountCtrl'
       })
+      .when('/myroute', {
+        templateUrl: 'views/myroute.html',
+        controller: 'MyrouteCtrl'
+      })
       .otherwise({redirectTo: '/'});
   }])
 

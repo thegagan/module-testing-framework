@@ -1,0 +1,35 @@
+// padding functions, eg: @include 4pad(10px,10px,0,20px);
+@function pad($pad) {
+  @return unquote($pad + 'px');
+}
+@function pad2($pad1, $pad2){
+  @return unquote($pad1 + 'px' + ' ' + $pad2 + 'px');
+}
+@function pad4($pad1, $pad2, $pad3, $pad4){
+  @return unquote($pad1 + 'px' + ' ' + $pad2 + 'px' + ' ' + $pad3 + 'px' + ' ' + $pad4 + 'px');
+}
+// margin functions, eg: @include 4mar(10px,10px,0,20px);
+@function mar($mar) {
+  @return $mar + 'px';
+}
+@function mar2($mar1, $mar2){
+  @return unquote($mar1 + 'px' + ' ' + $mar2 + 'px');
+}
+@function mar4($mar1, $mar2, $mar3, $mar4){
+  @return unquote($mar1 + 'px' + ' ' + $mar2 + 'px' + ' ' + $mar3 + 'px' + ' ' + $mar4 + 'px');
+}
+
+.centered { text-align: center; }
+.pad-5 { padding: pad(5);} 
+.pad-10 { padding: pad(10);}
+.pad-15 { padding: pad(15);}
+.pad-20 { padding: pad(20);}
+.pad-25 { padding: pad(25);}
+.pad-10-0 { padding: 2pad(10, 0);}
+
+.mar-0 { margin: 0;}
+.mar-10-0 { margin: 2mar(10, 0);}
+.mar-10-na-na-na { margin-top: 10px;}
+
+.width-100p { width: 100%; }
+.height-100p { width: 100%; }

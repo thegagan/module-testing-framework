@@ -1,89 +1,142 @@
-// bower:scss
-// endbower
 
-.browsehappy {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
+@import '_fonts.scss';
+@import '_transitions.scss';
+@import '_atomic.scss';
+
+html, body { 
+  padding: 0; margin: 0; height: 100%; 
+  position: relative; 
+  font-family: 'Open Sans'; 
+  color: white;
+  background-image: url("../images/textures/grey_@2X.png");
+  background-repeat: repeat;
 }
 
-body {
-  padding: 0;
+#bg { 
+  height: 100%; width: 100%;
+  position:fixed;
+  background-color: rgba(0,0,0,.9);
 }
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-  padding-left: 15px;
-  padding-right: 15px;
+#mainbody {
+  margin-left: 300px;
+  width: calc(100% - 300px);
+  height: 100%;
 }
 
-/* Custom page header */
-.header {
-  border-bottom: 1px solid #e5e5e5;
+// C O L O R S
+
+$white: #fff;
+$graytext : #9b9b9b;
+$neon: #00aaed;
+.white { color: $white; }
+.graytext { color: $graytext; }
+.neon { color: $neon; }
+
+a, a:active, a:focus { 
+  color: $neon; text-decoration: none; 
+  &:hover { }
+}
+
+ul, li { list-style: none; }
+
+// N A V I G A T I O N
+
+#leftNavContainer {
+  position: fixed;
+  left: 0;
+  background-color: #2B2B2B;
+  width: 300px;
+  height: 100%;
+  top: 0;
+
+  hr { border-color: #0b0b0b; }
+  #menuBars { padding: 1000px; }
+  #logo-lite {
+    width: 103px;
+    margin-left: calc(50% - 51.5px);
+    padding: pad2(10, 0);
+  }
+} 
+
+// I N P U T,  S E L E C T,  L A B E L ,  & B U T T O N S
+
+form {
+  .form-group { padding-bottom: 5px; }
+  label { width: 50px; padding-left: 5px; font-weight: 100; @extend .graytext; }
+}
+
+input.input-neon, select.select-neon, label.btn-neon { 
+  border-color: gray;
+  color: $graytext;
+  background-color: #2b2b2b;
+  cursor: pointer;
+  border-radius: 0px; 
+  -moz-border-radius: 0px; 
+  -webkit-border-radius: 0px; 
+  &.active, &:focus, &:active { 
+    border-color: $white; 
+    color: white;
+    word-spacing: 16px;
+    box-shadow: none;
+    outline: none;
+  }
+}
+
+.btn-group {
+  &.radioSpacing {
+    label { 
+      margin-right: 15px; 
+      &.spacing { margin-right: 30px; }
+    }
+  }
+}
+
+.btn {
+  &:hover{ text-decoration: none;}
+  &.btn-neon { 
+    border-color: gray;
+    color: $graytext;
+    background-color: #2b2b2b;
+    cursor:pointer;
+    border-radius: 0;
+    @include transition(all 1s ease-in-out);
+    &:hover {
+      border-color: $neon;
+      color: $neon;
+      i { margin-left: 20px; }
+    }
+    i { 
+      @include transition(all 1s ease-in-out); 
+      margin-left:5px; 
+    }
+  }
+}
+
+// A L E R T S
+
+.alert {
+  &.alert-muted {
+    background-color: none;
+    border-color: gray
+  }
+  button.close { text-shadow: none; color: white; border: none;}
+}
+
+// P R E D I C T I O N  C A R D S
+
+.predictionCard {
   margin-bottom: 10px;
-
-  /* Make the masthead heading the same height as the navigation */
-  h3 {
-    margin-top: 0;
-    margin-bottom: 0;
-    line-height: 40px;
-    padding-bottom: 19px;
+  border: 1px dotted rgba(255,255,255,.07);
+  @include transition(all 1s ease-in-out); 
+  &:hover {
+    border: 1px dashed rgba(255,255,255,.2);
   }
-}
-
-/* Custom page footer */
-.footer {
-  padding-top: 19px;
-  color: #777;
-  border-top: 1px solid #e5e5e5;
-}
-
-.container-narrow > hr {
-  margin: 30px 0;
-}
-
-/* Main marketing message and sign up button */
-.jumbotron {
-  text-align: center;
-  border-bottom: 1px solid #e5e5e5;
-
-  .btn {
-    font-size: 21px;
-    padding: 14px 24px;
-  }
-}
-
-/* Supporting marketing content */
-.marketing {
-  margin: 40px 0;
-
-  p + h4 {
-    margin-top: 28px;
-  }
-}
-
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-  .container {
-    max-width: 730px;
-  }
-
-  /* Remove the padding we set earlier */
-  .header,
-  .marketing,
-  .footer {
-    padding-left: 0;
-    padding-right: 0;
-  }
-  /* Space out the masthead */
   .header {
-    margin-bottom: 30px;
+    background-color: rgba(255,255,255,.05);
+    padding: 10px;
   }
-  /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    border-bottom: 0;
+  .body {
+    padding: 10px;
   }
 }

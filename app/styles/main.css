@@ -1,0 +1,159 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,700);
+.centered {
+  text-align: center; }
+
+.pad-5 {
+  padding: 5px; }
+
+.pad-10 {
+  padding: 10px; }
+
+.pad-15 {
+  padding: 15px; }
+
+.pad-20 {
+  padding: 20px; }
+
+.pad-25 {
+  padding: 25px; }
+
+.pad-10-0 {
+  padding: 2pad 10, 0; }
+
+.mar-0 {
+  margin: 0; }
+
+.mar-10-0 {
+  margin: 2mar 10, 0; }
+
+.mar-10-na-na-na {
+  margin-top: 10px; }
+
+.width-100p {
+  width: 100%; }
+
+.height-100p {
+  width: 100%; }
+
+html, body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  position: relative;
+  font-family: 'Open Sans';
+  color: white;
+  background-image: url("../images/textures/grey_@2X.png");
+  background-repeat: repeat; }
+
+#bg {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.9); }
+
+#mainbody {
+  margin-left: 300px;
+  width: calc(100% - 300px);
+  height: 100%; }
+
+.white {
+  color: #fff; }
+
+.graytext, form label {
+  color: #9b9b9b; }
+
+.neon {
+  color: #00aaed; }
+
+a, a:active, a:focus {
+  color: #00aaed;
+  text-decoration: none; }
+
+ul, li {
+  list-style: none; }
+
+#leftNavContainer {
+  position: fixed;
+  left: 0;
+  background-color: #2B2B2B;
+  width: 300px;
+  height: 100%;
+  top: 0; }
+  #leftNavContainer hr {
+    border-color: #0b0b0b; }
+  #leftNavContainer #menuBars {
+    padding: 1000px; }
+  #leftNavContainer #logo-lite {
+    width: 103px;
+    margin-left: calc(50% - 51.5px);
+    padding: 10px 0px; }
+
+form .form-group {
+  padding-bottom: 5px; }
+form label {
+  width: 50px;
+  padding-left: 5px;
+  font-weight: 100; }
+
+input.input-neon, select.select-neon, label.btn-neon {
+  border-color: gray;
+  color: #9b9b9b;
+  background-color: #2b2b2b;
+  cursor: pointer;
+  border-radius: 0px;
+  -moz-border-radius: 0px;
+  -webkit-border-radius: 0px; }
+  input.input-neon.active, input.input-neon:focus, input.input-neon:active, select.select-neon.active, select.select-neon:focus, select.select-neon:active, label.btn-neon.active, label.btn-neon:focus, label.btn-neon:active {
+    border-color: #fff;
+    color: white;
+    word-spacing: 16px;
+    box-shadow: none;
+    outline: none; }
+
+.btn-group.radioSpacing label {
+  margin-right: 15px; }
+  .btn-group.radioSpacing label.spacing {
+    margin-right: 30px; }
+
+.btn:hover {
+  text-decoration: none; }
+.btn.btn-neon {
+  border-color: gray;
+  color: #9b9b9b;
+  background-color: #2b2b2b;
+  cursor: pointer;
+  border-radius: 0;
+  -webkit-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out; }
+  .btn.btn-neon:hover {
+    border-color: #00aaed;
+    color: #00aaed; }
+    .btn.btn-neon:hover i {
+      margin-left: 20px; }
+  .btn.btn-neon i {
+    -webkit-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+    margin-left: 5px; }
+
+.alert.alert-muted {
+  background-color: none;
+  border-color: gray; }
+.alert button.close {
+  text-shadow: none;
+  color: white;
+  border: none; }
+
+.predictionCard {
+  margin-bottom: 10px;
+  border: 1px dotted rgba(255, 255, 255, 0.07);
+  -webkit-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out; }
+  .predictionCard:hover {
+    border: 1px dashed rgba(255, 255, 255, 0.2); }
+  .predictionCard .header {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 10px; }
+  .predictionCard .body {
+    padding: 10px; }
+
+/*# sourceMappingURL=main.css.map */

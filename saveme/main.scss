@@ -1,0 +1,42 @@
+
+html, body { padding: 0; margin: 0; height: 100%; position: relative; }
+
+
+.pad-5 { padding: pad(5px); }
+.pad-10 { padding: pad(10px); }
+.pad-15 { padding: pad(15px); }
+.pad-20 { padding: pad(20px); }
+.pad-25 { padding: pad(25px); }
+
+.pad-10-0 { padding: 2pad(10px, 0); }
+
+// padding functions, eg: @include 4pad(10px,10px,0,20px);
+
+@function pad($pad) {
+  @return unquote($pad + 'px');
+}
+@function pad2($pad1, $pad2){
+  @return unquote($pad1 + 'px' + ' ' + $pad2 + 'px');
+}
+@function pad4($pad1, $pad2, $pad3, $pad4){
+  @return unquote($pad1 + 'px' + ' ' + $pad2 + 'px' + ' ' + $pad3 + 'px' + ' ' + $pad4 + 'px');
+}
+
+#leftNavContainer {
+  position: fixed;
+  left: 0;
+  background-color: #2B2B2B;
+  width: 300px;
+  height: 100%;
+  top: 0;
+
+  hr { border-color: #2b2b2b; }
+
+  #menuBars { padding: 1000px; }
+
+  #logo-lite {
+    width: 103px;
+    margin-left: calc(50% - 51.5px);
+    padding: pad2(10, 0);
+  }
+} 

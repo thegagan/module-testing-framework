@@ -1,6 +1,7 @@
 <!doctype html>
 <html class="no-js">
   <head>
+
     <meta charset="utf-8">
     <title></title>
     <meta name="description" content="">
@@ -11,18 +12,20 @@
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
   <body ng-app="coinioApp">
+    <div id="bg">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-
+    <div id="leftNavContainer" ng-include="'views/leftNav.html'"></div>
     <!-- Add your site or application content here -->
     <div class="header" ng-cloak="">
-      <div class="navbar navbar-default" role="navigation">
-        <div class="container">
+      <div class="navbar" role="navigation">
+        <div class="container-fluid">
           <div class="navbar-header">
 
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
@@ -31,13 +34,11 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-
-            <a class="navbar-brand" href="#/">coinio</a>
           </div>
 
           <div class="collapse navbar-collapse" id="js-navbar-collapse">
 
-            <ul class="nav navbar-nav">
+            <ul class="nav navbar-nav pull-right">
               <li class="active"><a href="#/">Home</a></li>
               <!-- //angularfire -->
               <li><a ng-href="#/chat">chat</a></li>
@@ -52,17 +53,13 @@
       </div>
     </div>
 
-    <div class="container">
-    <div ng-view=""></div>
-    </div>
-
-    <div class="footer">
+    <div id="mainbody">
       <div class="container">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team and Firebase</p>
+        <div ng-view=""></div>
       </div>
     </div>
 
-
+</div>
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
        !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
@@ -76,31 +73,47 @@
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="bower_components/angular-animate/angular-animate.js"></script>
-    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-    <script src="bower_components/angular-resource/angular-resource.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="scripts/modbootstrap.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+    <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"></script>
+    <!-- <script src="../bower_components/angular/angular.js"></script> -->
+    <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
+    <script src="../bower_components/angular-animate/angular-animate.js"></script>
+    <script src="../bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="../bower_components/angular-messages/angular-messages.js"></script>
+    <script src="../bower_components/angular-resource/angular-resource.js"></script>
+    <script src="../bower_components/angular-route/angular-route.js"></script>
+    <script src="../bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="../bower_components/angular-touch/angular-touch.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/angularfire/config.js"></script>
-        <script src="scripts/angularfire/firebase.ref.js"></script>
-        <script src="scripts/controllers/chat.js"></script>
-        <script src="scripts/filters/reverse.js"></script>
-        <script src="scripts/angularfire/auth.js"></script>
-        <script src="scripts/controllers/login.js"></script>
-        <script src="scripts/controllers/account.js"></script>
-        <script src="scripts/directives/ngShowAuth.js"></script>
-        <script src="scripts/directives/ngHideAuth.js"></script>
-        <script src="scripts/routes.js"></script>
-        <!-- endbuild -->
+      <!-- build:js({.tmp,app}) scripts/scripts.js -->
+      <script src="scripts/app.js"></script>
+      <script src="scripts/controllers/main.js"></script>
+      <script src="scripts/angularfire/config.js"></script>
+      <script src="scripts/angularfire/firebase.ref.js"></script>
+      <script src="scripts/controllers/chat.js"></script>
+      <script src="scripts/filters/reverse.js"></script>
+      <script src="scripts/angularfire/auth.js"></script>
+      <script src="scripts/controllers/login.js"></script>
+      <script src="scripts/controllers/account.js"></script>
+      <script src="scripts/directives/ngShowAuth.js"></script>
+      <script src="scripts/directives/ngHideAuth.js"></script>
+      <script src="scripts/routes.js"></script>
+      <script src="scripts/controllers/myroute.js"></script>
+      <!-- endbuild -->
+
+    <script type="text/javascript"> // Initialize Firebase
+    var config = {
+      apiKey: "0000000000000-00000000000000-0000000000",
+      authDomain: "coin-io.firebaseapp.com",
+      databaseURL: "https://coin-io.firebaseio.com",
+      storageBucket: "coin-io.appspot.com",
+    };
+    firebase.initializeApp(config);
+
 </body>
 </html>

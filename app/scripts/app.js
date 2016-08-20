@@ -11,6 +11,7 @@
 angular.module('coinioApp', [
     'ngAnimate',
     'ngCookies',
+    'ngMessages',
     'ngResource',
     'ngRoute',
     'ngSanitize',
@@ -18,4 +19,8 @@ angular.module('coinioApp', [
     'firebase',
     'firebase.ref',
     'firebase.auth'
-  ]);
+  ], function() {
+    
+     // stuff goes here
+
+  });

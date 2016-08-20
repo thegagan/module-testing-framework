@@ -1,0 +1,66 @@
+<div class="form-group col-xs-12">
+	<form>
+		<div class="btn-group radioSpacing" data-toggle="buttons">
+		  <label class="btn btn-neon active white">
+		    <input type="radio" name="options" id="option1" autocomplete="off" checked> all
+		  </label>
+			<label class="btn btn-neon white">
+		    <input type="radio" name="options" id="option1" autocomplete="off" checked> hot
+		  </label>
+		  <label class="btn btn-neon white spacing">
+		    <input type="radio" name="options" id="option1" autocomplete="off" checked> you
+		  </label>
+		  <label class="btn btn-neon white">
+		    <input type="radio" name="options" id="option1" autocomplete="off" checked> BTC
+		  </label>
+		  <label class="btn btn-neon white">
+		    <input type="radio" name="options" id="option2" autocomplete="off"> ETH
+		  </label>
+		  <label class="btn btn-neon white">
+		    <input type="radio" name="options" id="option2" autocomplete="off"> ETC
+		  </label>
+		  <label class="btn btn-neon white">
+		    <input type="radio" name="options" id="option2" autocomplete="off"> FCT
+		  </label>
+		</div>
+	</form>
+</div>
+
+<div class="col-sm-4 col-xs-12" ng-repeat="card in pCard">
+	<div class="predictionCard">
+		<div class="header">
+			<i class="glyphicon glyphicon-user" style="top:-1px; font-size: 10px;"></i>&ensp;
+			<b>{{card.user}}</b>&ensp;
+			<a href="" class="btn btn-link btn-xs pull-right p10">{{card.userPts > 0 ? '+' + card.userPts : card.score}} pts</a>
+		</div>
+		<div class="body graytext">
+			<div class="col-xs-6">
+				<p class="white">
+					<b>{{card.coin}}</b><span class="pull-right">{{card.trend}}</span>
+				</p>
+				<p>
+					Buy:<span class="pull-right">{{card.buy}}</span>
+				</p>
+				<p>
+					Sell:
+					<span class="pull-right">{{card.sell}}</span>
+				</p>
+				<p>
+					<span ng-hide="card.trend == 'long'">
+						Stop:
+						<span class="pull-right">{{card.stop}}</span>
+					</span>&ensp;
+				</p>
+			</div>
+			<div class="col-xs-6">
+				<h3 class="centered white">{{card.score > 0 ? '+' + card.score : card.score}}</h3>
+				<p class="centered">
+					<a href=""><i class="glyphicon glyphicon-ok-circle"></i></a> &ensp;
+					<a href=""><i class="glyphicon glyphicon-adjust"></i></a> &ensp;
+					<a href=""><i class="glyphicon glyphicon-ban-circle"></i></a>
+				</p>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+</div>

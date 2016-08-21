@@ -71,6 +71,18 @@
        ga('send', 'pageview');
     </script>
 
+    <!-- Initialize Firebase -->
+	<script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+	<script>
+	  var config = {
+	    apiKey: "AIzaSyBp_z86AizKYQwNTaAyPWBI9vrnYzei6ok",
+	    authDomain: "coin-io.firebaseapp.com",
+	    databaseURL: "https://coin-io.firebaseio.com",
+	    storageBucket: "coin-io.appspot.com",
+	  };
+	  firebase.initializeApp(config);
+	</script>
+
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="../bower_components/jquery/dist/jquery.js"></script>

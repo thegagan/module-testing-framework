@@ -33,3 +33,34 @@
 
 .width-100p { width: 100%; }
 .height-100p { width: 100%; }
+
+.block { display: block; }
+
+
+
+// C O L O R S              colors
+
+// C O L O R S
+
+$white: #fff;
+$gray : #9b9b9b;
+$neon: #00aaed;
+$green: #7ED321;
+$red: #FC3850;
+$purple: purple;
+
+.white { color: $white; }
+.gray { color: $gray; }
+.neon { color: $neon; }
+.green { color: $green; }
+.red { color: $red; }
+.neon { color: $neon; }
+.purple { color: $purple; }
+
+.p8 { font-size: 8px; }
+.p9 { font-size: 9px; }
+.p10 { font-size: 10px; }
+
+
+
+

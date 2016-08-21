@@ -1,4 +1,168 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,700);
+/*
+
+Pure CSS3 bounce effect. 
+
+TODO: 
+    Find a better way to do it with scss.
+
+Support: 
+    Webkit, Chrome and Safari
+
+How to use:
+    -webkit-animation: bounce 800ms ease-out;
+    -moz-animation: bounce 800ms ease-out;
+    -o-animation: bounce 800ms ease-out;
+    animation: bounce 800ms ease-out;
+
+ */
+@-webkit-keyframes bounce {
+  0% {
+    -webkit-transform: translateY(-100%);
+    opacity: 0; }
+  5% {
+    -webkit-transform: translateY(-100%);
+    opacity: 0; }
+  15% {
+    -webkit-transform: translateY(0);
+    padding-bottom: 5px; }
+  30% {
+    -webkit-transform: translateY(-50%); }
+  40% {
+    -webkit-transform: translateY(0%);
+    padding-bottom: 6px; }
+  50% {
+    -webkit-transform: translateY(-30%); }
+  70% {
+    -webkit-transform: translateY(0%);
+    padding-bottom: 7px; }
+  80% {
+    -webkit-transform: translateY(-15%); }
+  90% {
+    -webkit-transform: translateY(0%);
+    padding-bottom: 8px; }
+  95% {
+    -webkit-transform: translateY(-10%); }
+  97% {
+    -webkit-transform: translateY(0%);
+    padding-bottom: 9px; }
+  99% {
+    -webkit-transform: translateY(-5%); }
+  100% {
+    -webkit-transform: translateY(0);
+    padding-bottom: 9px;
+    opacity: 1; } }
+/* Mozilla Firefox 15 below */
+@-moz-keyframes bounce {
+  0% {
+    -moz-transform: translateY(-100%);
+    opacity: 0; }
+  5% {
+    -moz-transform: translateY(-100%);
+    opacity: 0; }
+  15% {
+    -moz-transform: translateY(0);
+    padding-bottom: 5px; }
+  30% {
+    -moz-transform: translateY(-50%); }
+  40% {
+    -moz-transform: translateY(0%);
+    padding-bottom: 6px; }
+  50% {
+    -moz-transform: translateY(-30%); }
+  70% {
+    -moz-transform: translateY(0%);
+    padding-bottom: 7px; }
+  80% {
+    -moz-transform: translateY(-15%); }
+  90% {
+    -moz-transform: translateY(0%);
+    padding-bottom: 8px; }
+  95% {
+    -moz-transform: translateY(-10%); }
+  97% {
+    -moz-transform: translateY(0%);
+    padding-bottom: 9px; }
+  99% {
+    -moz-transform: translateY(-5%); }
+  100% {
+    -moz-transform: translateY(0);
+    padding-bottom: 9px;
+    opacity: 1; } }
+/* Opera 12.0 */
+@-o-keyframes bounce {
+  0% {
+    -o-transform: translateY(-100%);
+    opacity: 0; }
+  5% {
+    -o-transform: translateY(-100%);
+    opacity: 0; }
+  15% {
+    -o-transform: translateY(0);
+    padding-bottom: 5px; }
+  30% {
+    -o-transform: translateY(-50%); }
+  40% {
+    -o-transform: translateY(0%);
+    padding-bottom: 6px; }
+  50% {
+    -o-transform: translateY(-30%); }
+  70% {
+    -o-transform: translateY(0%);
+    padding-bottom: 7px; }
+  80% {
+    -o-transform: translateY(-15%); }
+  90% {
+    -o-transform: translateY(0%);
+    padding-bottom: 8px; }
+  95% {
+    -o-transform: translateY(-10%); }
+  97% {
+    -o-transform: translateY(0%);
+    padding-bottom: 9px; }
+  99% {
+    -o-transform: translateY(-5%); }
+  100% {
+    -o-transform: translateY(0);
+    padding-bottom: 9px;
+    opacity: 1; } }
+/* W3, Opera 12+, Firefox 16+ */
+@keyframes bounce {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0; }
+  5% {
+    transform: translateY(-100%);
+    opacity: 0; }
+  15% {
+    transform: translateY(0);
+    padding-bottom: 5px; }
+  30% {
+    transform: translateY(-50%); }
+  40% {
+    transform: translateY(0%);
+    padding-bottom: 6px; }
+  50% {
+    transform: translateY(-30%); }
+  70% {
+    transform: translateY(0%);
+    padding-bottom: 7px; }
+  80% {
+    transform: translateY(-15%); }
+  90% {
+    transform: translateY(0%);
+    padding-bottom: 8px; }
+  95% {
+    transform: translateY(-7%); }
+  97% {
+    transform: translateY(0%);
+    padding-bottom: 9px; }
+  99% {
+    transform: translateY(-3%); }
+  100% {
+    transform: translateY(0);
+    padding-bottom: 9px;
+    opacity: 1; } }
 .centered {
   text-align: center; }
 
@@ -35,6 +199,39 @@
 .height-100p {
   width: 100%; }
 
+.block {
+  display: block; }
+
+.white {
+  color: #fff; }
+
+.gray, form label {
+  color: #9b9b9b; }
+
+.neon {
+  color: #00aaed; }
+
+.green {
+  color: #7ED321; }
+
+.red {
+  color: #FC3850; }
+
+.neon {
+  color: #00aaed; }
+
+.purple {
+  color: purple; }
+
+.p8 {
+  font-size: 8px; }
+
+.p9 {
+  font-size: 9px; }
+
+.p10 {
+  font-size: 10px; }
+
 html, body {
   padding: 0;
   margin: 0;
@@ -55,15 +252,6 @@ html, body {
   margin-left: 300px;
   width: calc(100% - 300px);
   height: 100%; }
-
-.white {
-  color: #fff; }
-
-.graytext, form label {
-  color: #9b9b9b; }
-
-.neon {
-  color: #00aaed; }
 
 a, a:active, a:focus {
   color: #00aaed;
@@ -152,8 +340,33 @@ input.input-neon, select.select-neon, label.btn-neon {
     border: 1px dashed rgba(255, 255, 255, 0.2); }
   .predictionCard .header {
     background-color: rgba(255, 255, 255, 0.05);
-    padding: 10px; }
+    padding: 10px;
+    height: 40px; }
+    .predictionCard .header a:hover {
+      color: white;
+      -webkit-transition: all 1s ease-in-out;
+      transition: all 1s ease-in-out; }
   .predictionCard .body {
     padding: 10px; }
+    .predictionCard .body .hfm-buttons .zxc {
+      opacity: 0; }
+    .predictionCard .body .hfm-buttons a {
+      -webkit-transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out;
+      text-shadow: none; }
+      .predictionCard .body .hfm-buttons a:nth-child(1) {
+        color: #7ED321; }
+        .predictionCard .body .hfm-buttons a:nth-child(1):hover {
+          text-shadow: 0px 0px 10px #7ED321, 0px 0px 20px #7ED321; }
+      .predictionCard .body .hfm-buttons a:nth-child(2) {
+        color: #9b9b9b; }
+        .predictionCard .body .hfm-buttons a:nth-child(2):hover {
+          text-shadow: 0px 0px 10px #9b9b9b, 0px 0px 20px #9b9b9b; }
+      .predictionCard .body .hfm-buttons a:nth-child(3) {
+        color: #FC3850; }
+        .predictionCard .body .hfm-buttons a:nth-child(3):hover {
+          text-shadow: 0px 0px 10px #FC3850, 0px 0px 20px #FC3850; }
+      .predictionCard .body .hfm-buttons a:hover {
+        color: black; }
 
 /*# sourceMappingURL=main.css.map */

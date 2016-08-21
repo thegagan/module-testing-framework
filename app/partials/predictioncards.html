@@ -29,11 +29,12 @@
 <div class="col-sm-4 col-xs-12" ng-repeat="card in pCard">
 	<div class="predictionCard">
 		<div class="header">
-			<i class="glyphicon glyphicon-user" style="top:-1px; font-size: 10px;"></i>&ensp;
-			<b>{{card.user}}</b>&ensp;
-			<a href="" class="btn btn-link btn-xs pull-right p10">{{card.userPts > 0 ? '+' + card.userPts : card.score}} pts</a>
+			<a href="" class="block">
+				<b class="pull-left">{{card.user}}</b>
+				<span class="pull-right">{{card.userPts > 0 ? '+' + card.userPts : card.score}} pts</span>
+			</a>
 		</div>
-		<div class="body graytext">
+		<div class="body gray">
 			<div class="col-xs-6">
 				<p class="white">
 					<b>{{card.coin}}</b><span class="pull-right">{{card.trend}}</span>
@@ -53,8 +54,9 @@
 				</p>
 			</div>
 			<div class="col-xs-6">
-				<h3 class="centered white">{{card.score > 0 ? '+' + card.score : card.score}}</h3>
-				<p class="centered">
+				<p class="centered">Current Return</p>
+				<h3 class="centered" ng-class="colorize(card);">{{card.score > 0 ? '+' + card.score : card.score}}</h3>
+				<p class="centered hfm-buttons">
 					<a href=""><i class="glyphicon glyphicon-ok-circle"></i></a> &ensp;
 					<a href=""><i class="glyphicon glyphicon-adjust"></i></a> &ensp;
 					<a href=""><i class="glyphicon glyphicon-ban-circle"></i></a>

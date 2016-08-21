@@ -34,4 +34,37 @@
 .height-100p {
   width: 100%; }
 
+.block {
+  display: block; }
+
+.white {
+  color: #fff; }
+
+.gray {
+  color: #9b9b9b; }
+
+.neon {
+  color: #00aaed; }
+
+.green {
+  color: #7ED321; }
+
+.red {
+  color: #FC3850; }
+
+.neon {
+  color: #00aaed; }
+
+.purple {
+  color: purple; }
+
+.p8 {
+  font-size: 8px; }
+
+.p9 {
+  font-size: 9px; }
+
+.p10 {
+  font-size: 10px; }
+
 /*# sourceMappingURL=_atomic.css.map */

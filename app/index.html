@@ -73,45 +73,26 @@
 
   <!-- build:js(.) scripts/vendor.js -->
   <!-- bower:js -->
-  <script src="../bower_components/jquery/dist/jquery.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
-  <!-- <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase-database.js"></script> -->
-  <!-- firebase stuff -->
-  <script src="../bower_components/firebase/firebase.js"></script>
-  <script src="../bower_components/firebase/firebase-app.js"></script>
-  <script src="../bower_components/firebase/firebase-auth.js"></script>
-  <script src="../bower_components/firebase/firebase-database.js"></script>
-  <script src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"></script>
-  
-  <script>
-    // Initialize Firebase
-    var config = {
-      apiKey: "AIzaSyBp_z86AizKYQwNTaAyPWBI9vrnYzei6ok",
-      authDomain: "coin-io.firebaseapp.com",
-      databaseURL: "https://coin-io.firebaseio.com",
-      storageBucket: "coin-io.appspot.com",
-    };
-    firebase.initializeApp(config);
-  </script>
-
-  <!-- <script src="../bower_components/angular/angular.js"></script> -->
-  <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
-  <script src="scripts/modbootstrap.js"></script>
-  <script src="../bower_components/angular-animate/angular-animate.js"></script>
-  <script src="../bower_components/angular-cookies/angular-cookies.js"></script>
-  <script src="../bower_components/angular-messages/angular-messages.js"></script>
-  <script src="../bower_components/angular-resource/angular-resource.js"></script>
-  <script src="../bower_components/angular-route/angular-route.js"></script>
-  <script src="../bower_components/angular-sanitize/angular-sanitize.js"></script>
-  <script src="../bower_components/angular-touch/angular-touch.js"></script>
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/firebase/firebase.js"></script>
+  <script src="bower_components/angularfire/dist/angularfire.js"></script>
+  <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.js"></script>
+  <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+  <script src="bower_components/angular-messages/angular-messages.js"></script>
+  <script src="bower_components/angular-resource/angular-resource.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+  <script src="bower_components/angular-touch/angular-touch.js"></script>
   <!-- endbower -->
   <!-- endbuild -->
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
+    <script src="scripts/angularfire/config.js"></script>
+    <script src="scripts/angularfire/auth.js"></script>
+    <script src="scripts/angularfire/firebase.ref.js"></script>
     <script src="scripts/controllers/main.js"></script>
     <script src="scripts/controllers/chat.js"></script>
     <script src="scripts/filters/reverse.js"></script>

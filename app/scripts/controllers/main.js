@@ -56,17 +56,16 @@ angular.module("coinioApp").controller("MainCtrl", function ($scope) {
 		}
 	];
 
-	$scope.pNew = [
+	$scope.pNew = 
 		{
 			"userName": "",
 			"userId": "",
 			"coin": "",
 			"position": "",
 			"open": "",
-			"close": "123",
+			"close": "",
 			"stop": ""
-		}
-	];
+		};
 
 	$scope.colorize = function(card) {
 		if (card.score > 0) {
@@ -77,18 +76,21 @@ angular.module("coinioApp").controller("MainCtrl", function ($scope) {
 		}
 	};
 
-
-	///Places prediction with a unique id to firebase database
-function recordPrediction(userName, coin, position, open, close, stop) {
-  firebase.database().ref('predictions/').push({
-    username: username,
-    coin: coin,
-    position: position,
-    open: open,
-    close: close,
-    stop: stop,
-    timestamp: firebase.database.ServerValue.TIMESTAMP
-  });
-};
+///Places prediction with a unique id to firebase database
+	$scope.recordPrediction = function (data) {
+	  console.log("meow" + pNew);
+	  var pNew = $scope.pNew;
+	  firebase.database().ref('predictions/').push(
+	  	pNew
+	    // username: username,
+	    // coin: coin,
+	    // position: position,
+	    // open: open,
+	    // close: close,
+	    // stop: stop,
+	    // timestamp: firebase.database.ServerValue.TIMESTAMP
+	  );
+	  console.log(pNew);
+	};
 
 });

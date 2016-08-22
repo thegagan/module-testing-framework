@@ -1,0 +1,9 @@
+{
+	"firebase": "myfirebase",	
+  "database": {
+    "rules": "database.rules.json"
+  },
+  "hosting": {
+    "public": "app"
+  }
+}

@@ -2,7 +2,7 @@
   "name": "coin-io",
   "version": "0.0.0",
   "dependencies": {
-    "firebase": "^3.3.0",
+    "firebase": "^3.3.0"
   },
   "repository": {},
   "devDependencies": {

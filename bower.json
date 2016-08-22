@@ -19,5 +19,8 @@
     "angular-mocks": "^1.3.0"
   },
   "appPath": "app",
-  "moduleName": "coinioApp"
+  "moduleName": "coinioApp",
+  "resolutions": {
+    "firebase": "2.x.x"
+  }
 }

@@ -1,9 +1,11 @@
-<div class="alert alert-muted" role="alert">
-  <button type="button" class="close" data-dismiss="alert">
-    <span>&times;</span>
-  </button>
-  <strong>Welcome to CO1N</strong>
-  <p>View community predictions below. Create your own using the menu on the left or hype/fud existing predictions. Build credibility to become a crypto celebrity and influence others. Learn more.</p>
-</div>
+<div ng-controller="MainCtrl">
+  <div class="alert alert-muted" role="alert">
+    <button type="button" class="close" data-dismiss="alert">
+      <span>&times;</span>
+    </button>
+    <strong>Welcome to CO1N</strong>
+    <p>View community predictions below. Create your own using the menu on the left or hype/fud existing predictions. Build credibility to become a crypto celebrity and influence others. Learn more.</p>
+  </div>
 
-<div ng-include="'partials/predictionCards.html'"></div>
+  <div ng-include="'partials/predictionCards.html'"></div>
+</div>

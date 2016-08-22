@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 /**
  * @ngdoc function
@@ -7,34 +7,64 @@
  * # MainCtrl
  * Controller of the coinioApp
  */
-angular.module('coinioApp').controller('MainCtrl', function ($scope) {
+angular.module("coinioApp").controller("MainCtrl", function ($scope) {
 	$scope.awesomeThings = [
-	  'HTML5 Boilerplate',
-	  'AngularJS',
-	  'Karma'
+	  "HTML5 Boilerplate",
+	  "AngularJS",
+	  "Karma"
 	];
 
 	$scope.pCard = [
 		{
-			user: 'betaUser99',
-			userId: '1',
-			userPts: '4.56',
-			coin: 'BTC',
-			trend: 'long',
-			buy: '.00325',
-			sell: '.00452',
-			stop: '.00306',
-			score: '3.65'
+			"userName": "betaUser99",
+			"userId": "1",
+			"userPts": "4.56",
+			"coin": "BTC",
+			"position": "long",     
+			"open": ".00325",
+			"close": ".00452",
+			"stop": ".00306",
+			"score": "3.65"
 		}, {
-			user: 'gaznox',
-			userId: '2',
-			userPts: '-1.46',
-			coin: 'ETC',
-			trend: 'short',
-			buy: '.00325',
-			sell: '.00452',
-			stop: '.00306',
-			score: '-3.65'
+			"user": "gaznox",
+			"userId": "2",
+			"userPts": "-1.46",
+			"coin": "ETC",
+			"position": "short",
+			"open": ".00325",
+			"close": ".00452",
+			"stop": ".00306",
+			"score": "-3.65"
+		}
+	];
+	
+	$scope.test = "THIS IS A SUCCESSFUL TEST!!!!";
+
+	$scope.allCoins = [
+		{
+			"coin": "BTC",
+			"name": "Bitcoin",
+		}, {
+			"coin": "ETH",
+			"name": "Ethereum",
+		}, {
+			"coin": "ETC",
+			"name": "Ethereum Classic",
+		}, {
+			"coin": "FCT",
+			"name": "Factom",
+		}
+	];
+
+	$scope.pNew = [
+		{
+			"userName": "",
+			"userId": "",
+			"coin": "",
+			"position": "",
+			"open": "",
+			"close": "123",
+			"stop": ""
 		}
 	];
 
@@ -45,7 +75,20 @@ angular.module('coinioApp').controller('MainCtrl', function ($scope) {
 		if (card.score < 0) {
 			return "red";
 		}
-
 	};
+
+
+	///Places prediction with a unique id to firebase database
+function recordPrediction(userName, coin, position, open, close, stop) {
+  firebase.database().ref('predictions/').push({
+    username: username,
+    coin: coin,
+    position: position,
+    open: open,
+    close: close,
+    stop: stop,
+    timestamp: firebase.database.ServerValue.TIMESTAMP
+  });
+};
 
 });

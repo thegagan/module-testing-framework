@@ -30,24 +30,23 @@
 	<div class="predictionCard">
 		<div class="header">
 			<a href="" class="block">
-				<b class="pull-left">{{card.user}}</b>
+				<b class="pull-left">{{card.userName}}</b>
 				<span class="pull-right">{{card.userPts > 0 ? '+' + card.userPts : card.score}} pts</span>
 			</a>
 		</div>
 		<div class="body gray">
 			<div class="col-xs-6">
 				<p class="white">
-					<b>{{card.coin}}</b><span class="pull-right">{{card.trend}}</span>
+					<b>{{card.coin}}</b><span class="pull-right">{{card.position}}</span>
 				</p>
 				<p>
-					Buy:<span class="pull-right">{{card.buy}}</span>
+					Open:<span class="pull-right">{{card.open}}</span>
 				</p>
 				<p>
-					Sell:
-					<span class="pull-right">{{card.sell}}</span>
+					Close:<span class="pull-right">{{card.close}}</span>
 				</p>
 				<p>
-					<span ng-hide="card.trend == 'long'">
+					<span ng-hide="card.position == 'long'">
 						Stop:
 						<span class="pull-right">{{card.stop}}</span>
 					</span>&ensp;

@@ -7,13 +7,7 @@
  * # MainCtrl
  * Controller of the coinioApp
  */
-angular.module("coinioApp").controller("MainCtrl", function ($scope) {
-	$scope.awesomeThings = [
-	  "HTML5 Boilerplate",
-	  "AngularJS",
-	  "Karma"
-	];
-
+angular.module("coinioApp").controller("MainCtrl", function ($scope, pNew) {
 	$scope.pCard = [
 		{
 			"userName": "betaUser99",
@@ -40,32 +34,7 @@ angular.module("coinioApp").controller("MainCtrl", function ($scope) {
 	
 	$scope.test = "THIS IS A SUCCESSFUL TEST!!!!";
 
-	$scope.allCoins = [
-		{
-			"coin": "BTC",
-			"name": "Bitcoin",
-		}, {
-			"coin": "ETH",
-			"name": "Ethereum",
-		}, {
-			"coin": "ETC",
-			"name": "Ethereum Classic",
-		}, {
-			"coin": "FCT",
-			"name": "Factom",
-		}
-	];
 
-	$scope.pNew = 
-		{
-			"userName": "",
-			"userId": "",
-			"coin": "",
-			"position": "",
-			"open": "",
-			"close": "",
-			"stop": ""
-		};
 
 	$scope.colorize = function(card) {
 		if (card.score > 0) {

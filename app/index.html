@@ -21,7 +21,7 @@
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    <div id="leftNavContainer" ng-include="'views/leftNav.html'" ng-controller="MainCtrl"></div>
+    <leftnav></leftnav>
     <!-- Add your site or application content here -->
     <div class="header" ng-cloak="">
       <div class="navbar" role="navigation">
@@ -102,6 +102,10 @@
     <script src="scripts/directives/ngHideAuth.js"></script>
     <script src="scripts/routes.js"></script>
     <script src="scripts/controllers/myroute.js"></script>
+    <script src="scripts/directives/leftnav.js"></script>
+    <script src="scripts/directives/prediction-form.js"></script>
+    <script src="scripts/directives/prediction-cards.js"></script>
+    <script src="scripts/services/pnew.js"></script>
     <!-- endbuild -->
 
 </body>

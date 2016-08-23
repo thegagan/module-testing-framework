@@ -182,7 +182,14 @@ module.exports = function (grunt) {
       },
       app: {
         src: ['<%= yeoman.app %>/index.html'],
-        ignorePath:  /\.\.\//
+        ignorePath:  /\.\.\//,
+        fileTypes:{
+          html: {
+            replace: {
+              js: '<script src="../{{filePath}}"></script>'
+            }
+          }
+        }
       },
       test: {
         devDependencies: true,

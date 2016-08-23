@@ -1,9 +1,15 @@
 {
-	"firebase": "myfirebase",	
+  "firebase": "coin-io",
   "database": {
     "rules": "database.rules.json"
   },
   "hosting": {
-    "public": "app"
+    "public": "app",
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
   }
 }

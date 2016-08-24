@@ -1,0 +1,49 @@
+<script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBp_z86AizKYQwNTaAyPWBI9vrnYzei6ok",
+    authDomain: "coin-io.firebaseapp.com",
+    databaseURL: "https://coin-io.firebaseio.com",
+    storageBucket: "coin-io.appspot.com",
+  };
+  firebase.initializeApp(config);
+</script>
+
+
+
+<!-- Begin MailChimp Signup Form -->
+<div id="mc_embed_signup">
+<form action="//co1n.us14.list-manage.com/subscribe/post?u=d18e04266ce74c601ffde3499&amp;id=445c3db07b" method="post" id="mc-embedded-subscribe-form" onsubmit="whatAreYouLookingAt(document.getElementById('mce-EMAIL').value)" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+    <div id="mc_embed_signup_scroll">
+	
+<div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
+<div class="mc-field-group">
+	<label for="mce-EMAIL">Email Address  <span class="asterisk">*</span>
+</label>
+	<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+</div>
+	<div id="mce-responses" class="clear">
+		<div class="response" id="mce-error-response" style="display:none"></div>
+		<div class="response" id="mce-success-response" style="display:none"></div>
+	</div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_d18e04266ce74c601ffde3499_445c3db07b" tabindex="-1" value=""></div>
+    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+    </div>
+</form>
+</div>
+
+<!--End mc_embed_signup-->
+
+
+
+<script type="text/javascript">
+  
+function whatAreYouLookingAt(email) {
+  firebase.database().ref('emails/').push({
+    email: email,
+    timestamp: firebase.database.ServerValue.TIMESTAMP
+  });
+}
+
+</script>

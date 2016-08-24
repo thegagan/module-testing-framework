@@ -26,12 +26,12 @@
 	</form>
 </div>
 
-<div class="col-sm-4 col-xs-12" ng-repeat="card in pCard">
+<div class="col-sm-4 col-xs-12" ng-repeat="card in pCard.data">
 	<div class="predictionCard">
 		<div class="header">
 			<a href="" class="block">
 				<b class="pull-left">{{card.userName}}</b>
-				<span class="pull-right">{{card.userPts > 0 ? '+' + card.userPts : card.score}} pts</span>
+				<span class="pull-right">{{card.userPts > 0 ? '+' + card.userPts : card.data.score}} pts</span>
 			</a>
 		</div>
 		<div class="body gray">

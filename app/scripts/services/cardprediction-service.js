@@ -8,13 +8,13 @@
  * Service in the coinioApp.
  */
 angular.module('coinioApp')
-  .service('pCard', function (NewPrediction) {
+  .service('pCard', function (NewPrediction, User) {
     // AngularJS will instantiate a singleton by calling "new" on this function
     	this.data = [
   			{
-					"userName": "betaUser99",
-					"userId": "1",
-					"userPts": "4.56",
+					"userName": User.data.name,
+					"userId": User.data.id,
+					"userPts": User.data.pts,
 					"coin": "BTC",
 					"position": "long",     
 					"open": ".00325",
@@ -24,9 +24,9 @@ angular.module('coinioApp')
 					"hype": "50",
 					"fud": "10",
 				}, {
-					"user": "gaznox",
-					"userId": "2",
-					"userPts": "-1.46",
+					"userName": User.data.name,
+					"userId": User.data.id,
+					"userPts": User.data.pts,
 					"coin": "ETC",
 					"position": "short",
 					"open": ".00325",

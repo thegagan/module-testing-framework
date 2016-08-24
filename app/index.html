@@ -6,6 +6,7 @@
     <title>CO1N</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
+    <link rel='CO1N favicon' href='favicon.ico' type='image/x-icon'/ >
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
@@ -90,22 +91,34 @@
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
+    <script src="scripts/routes.js"></script>
+
     <script src="scripts/angularfire/config.js"></script>
     <script src="scripts/angularfire/auth.js"></script>
     <script src="scripts/angularfire/firebase.ref.js"></script>
-    <script src="scripts/controllers/main.js"></script>
-    <script src="scripts/controllers/chat.js"></script>
-    <script src="scripts/filters/reverse.js"></script>
-    <script src="scripts/controllers/login.js"></script>
-    <script src="scripts/controllers/account.js"></script>
+
+    <script src="scripts/controllers/main-ctrl.js"></script>
+    <script src="scripts/controllers/chat-ctrl.js"></script>
+    <script src="scripts/controllers/login-ctrl.js"></script>
+    <script src="scripts/controllers/account-ctrl.js"></script>
+    <script src="scripts/controllers/myroute-ctrl.js"></script>
+
+    <script src="scripts/services/user-service.js"></script>
+    <script src="scripts/services/allcoin-service.js"></script>
+    <script src="scripts/services/newprediction-service.js"></script>
+    <script src="scripts/services/cardprediction-service.js"></script>
+
     <script src="scripts/directives/ngShowAuth.js"></script>
     <script src="scripts/directives/ngHideAuth.js"></script>
-    <script src="scripts/routes.js"></script>
-    <script src="scripts/controllers/myroute.js"></script>
+    <script src="scripts/directives/newprediction-directive.js"></script>
+
+    <script src="scripts/filters/reverse.js"></script>
+
     <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase-database.js"></script>
     <script src="scripts/configfb.js"></script>
+    
     <!-- endbuild -->
 
 </body>

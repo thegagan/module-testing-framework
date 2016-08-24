@@ -311,16 +311,16 @@ input.input-neon, select.select-neon, label.btn-neon {
   background-color: #2b2b2b;
   cursor: pointer;
   border-radius: 0;
-  -webkit-transition: all 1s ease-in-out;
-  transition: all 1s ease-in-out; }
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out; }
   .btn.btn-neon:hover {
     border-color: #00aaed;
     color: #00aaed; }
     .btn.btn-neon:hover i {
       margin-left: 20px; }
   .btn.btn-neon i {
-    -webkit-transition: all 1s ease-in-out;
-    transition: all 1s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
     margin-left: 5px; }
 
 .alert.alert-muted {

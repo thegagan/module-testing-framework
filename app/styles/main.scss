@@ -93,14 +93,14 @@ input.input-neon, select.select-neon, label.btn-neon {
     background-color: #2b2b2b;
     cursor:pointer;
     border-radius: 0;
-    @include transition(all 1s ease-in-out);
+    @include transition(all .2s ease-in-out);
     &:hover {
       border-color: $neon;
       color: $neon;
       i { margin-left: 20px; }
     }
     i { 
-      @include transition(all 1s ease-in-out); 
+      @include transition(all .2s ease-in-out); 
       margin-left:5px; 
     }
   }

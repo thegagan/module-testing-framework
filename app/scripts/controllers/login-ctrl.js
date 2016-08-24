@@ -20,7 +20,7 @@ angular.module('coinioApp')
 
     $scope.passwordLogin = function(email, pass) {
       $scope.err = null;
-      Auth.$authWithPassword({email: email, password: pass}, {rememberMe: true}).then(
+      firebase.auth().signInWithEmailAndPassword(email, pass).then(
         redirect, showError
       );
     };
@@ -32,12 +32,18 @@ angular.module('coinioApp')
       }
       else if( pass !== confirm ) {
         $scope.err = 'Passwords do not match';
+      } else if(pass.length < 6) {
+        $scope.err = 'Passwords must be at least 6 characters';
       }
       else {
-        Auth.$createUser({email: email, password: pass})
-          .then(function () {
+        firebase.auth().createUserWithEmailAndPassword(email, pass).catch(function(error) {
+          // Handle Errors here.
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          // ...
+          }).then(function () {
             // authenticate so we have permission to write to Firebase
-            return Auth.$authWithPassword({email: email, password: pass}, {rememberMe: true});
+            return firebase.auth().signInWithEmailAndPassword(email, pass);
           })
           .then(createProfile)
           .then(redirect, showError);

@@ -14,6 +14,7 @@ angular.module('coinioApp')
 			"name":  "DUMMY-NAME",
 			"id": "DUMMY-ID",
 			"joined" : "DUMMY-DATE",
+			"pts" : "123"
 		};
 
   });

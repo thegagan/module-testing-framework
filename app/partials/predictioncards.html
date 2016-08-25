@@ -29,7 +29,7 @@
 <div class="col-sm-4 col-xs-12" ng-repeat="card in pCard.data">
 	<div class="predictionCard">
 		<div class="header">
-			<a href="" class="block">
+			<a href="#/u/{{card.userName}}" class="block">
 				<b class="pull-left">{{card.userName}}</b>
 				<span class="pull-right">{{card.userPts > 0 ? '+' + card.userPts : card.userPts}} pts</span>
 			</a>

@@ -50,18 +50,21 @@ angular.module('coinioApp')
       $routeProvider.when(path, route);
       SECURED_ROUTES[path] = true;
       return $routeProvider;
-    };
-  }])
+      };
+    }])
 
-  // configure views; whenAuthenticated adds a resolve method to ensure users authenticate
-  // before trying to access that route
+    // configure views; whenAuthenticated adds a resolve method to ensure users authenticate
+    // before trying to access that route
   .config(['$routeProvider', function($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
-
+      .when('/u/:userName', {
+        templateUrl: 'views/profile.html',
+        controller: 'ProfileCtrl'
+      })
       .when('/chat', {
         templateUrl: 'views/chat.html',
         controller: 'ChatCtrl'
@@ -73,10 +76,6 @@ angular.module('coinioApp')
       .whenAuthenticated('/account', {
         templateUrl: 'views/account.html',
         controller: 'AccountCtrl'
-      })
-      .when('/myroute', {
-        templateUrl: 'views/myroute.html',
-        controller: 'MyrouteCtrl'
       })
       .otherwise({redirectTo: '/'});
   }])

@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Directive: newpredictionDirective', function () {
+describe('Directive: userIcon', function () {
 
   // load the directive's module
   beforeEach(module('coinioApp'));
@@ -13,8 +13,8 @@ describe('Directive: newpredictionDirective', function () {
   }));
 
   it('should make hidden element visible', inject(function ($compile) {
-    element = angular.element('<newprediction-directive></newprediction-directive>');
+    element = angular.element('<user-icon></user-icon>');
     element = $compile(element)(scope);
-    expect(element.text()).toBe('this is the newpredictionDirective directive');
+    expect(element.text()).toBe('this is the userIcon directive');
   }));
 });

@@ -1,0 +1,14 @@
+<div ng-controller="ProfileCtrl">
+	<div class="col-xs-12">
+		<h1 data-toggle="tooltip" data-title="meow">
+			{{User.data.name}} 
+			<span class="badge badge-green p30 light">{{User.data.pts}} pts</span>
+			<span class="badge badge-neon  p30 light"><user-icon></user-icon></span>
+		</h1>
+		<p class="gray">This page represents the prediction history of {{User.data.name}}. If you would like to request a feature to be added, please <a href="mailto:request@co1n.io" target="_blank">contact us</a>.</p>
+		<hr class="light">
+	</div>
+	<div class="col-xs-12">
+		<div ng-include="'partials/predictioncards.html'" ng-controller="ProfileCtrl"></div>
+	</div>
+</div>

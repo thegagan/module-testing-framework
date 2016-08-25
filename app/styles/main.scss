@@ -106,6 +106,21 @@ input.input-neon, select.select-neon, label.btn-neon {
   }
 }
 
+// B A D G E S
+
+.badge {
+    background-color: transparent;
+    border-radius: 0;
+  &.badge-green {
+    border: 1px solid $green;
+    color: $green;
+  }
+  &.badge-neon {
+    border: 1px solid $gray;
+    color: $gray;
+  }
+}
+
 // A L E R T S
 
 .alert {

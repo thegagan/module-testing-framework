@@ -163,9 +163,6 @@ How to use:
     transform: translateY(0);
     padding-bottom: 9px;
     opacity: 1; } }
-.centered {
-  text-align: center; }
-
 .pad-5 {
   padding: 5px; }
 
@@ -202,6 +199,9 @@ How to use:
 .block {
   display: block; }
 
+h1 {
+  font-weight: 100; }
+
 .white {
   color: #fff; }
 
@@ -231,6 +231,45 @@ How to use:
 
 .p10 {
   font-size: 10px; }
+
+.p12 {
+  font-size: 12px; }
+
+.p14 {
+  font-size: 14px; }
+
+.p16 {
+  font-size: 16px; }
+
+.p18 {
+  font-size: 18px; }
+
+.p20 {
+  font-size: 20px; }
+
+.p22 {
+  font-size: 22px; }
+
+.p24 {
+  font-size: 24px; }
+
+.p26 {
+  font-size: 26px; }
+
+.p28 {
+  font-size: 28px; }
+
+.p30 {
+  font-size: 30px; }
+
+.light {
+  font-weight: 100; }
+
+.centered {
+  text-align: center; }
+
+hr.light {
+  border-color: rgba(255, 255, 255, 0.1); }
 
 html, body {
   padding: 0;
@@ -322,6 +361,16 @@ input.input-neon, select.select-neon, label.btn-neon {
     -webkit-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
     margin-left: 5px; }
+
+.badge {
+  background-color: transparent;
+  border-radius: 0; }
+  .badge.badge-green {
+    border: 1px solid #7ED321;
+    color: #7ED321; }
+  .badge.badge-neon {
+    border: 1px solid #9b9b9b;
+    color: #9b9b9b; }
 
 .alert.alert-muted {
   background-color: none;

@@ -9,12 +9,13 @@
  */
 angular.module('coinioApp')
   .service('User', function () {
-    
   	this.data = {
-			"name":  "DUMMY-NAME",
-			"id": "DUMMY-ID",
-			"joined" : "DUMMY-DATE",
-			"pts" : "123"
+			"name":  "DummyName",
+			"id": "DummyId",
+			"joined" : "DummyDate",
+			"pts" : "123",
+			"lvl" : "0",
+			"icon" : ""
 		};
 
   });

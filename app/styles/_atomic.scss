@@ -19,7 +19,6 @@
   @return unquote($mar1 + 'px' + ' ' + $mar2 + 'px' + ' ' + $mar3 + 'px' + ' ' + $mar4 + 'px');
 }
 
-.centered { text-align: center; }
 .pad-5 { padding: pad(5);} 
 .pad-10 { padding: pad(10);}
 .pad-15 { padding: pad(15);}
@@ -37,8 +36,10 @@
 .block { display: block; }
 
 
+// H E A D E R S
 
-// C O L O R S              colors
+h1 { font-weight: 100; }
+
 
 // C O L O R S
 
@@ -57,10 +58,31 @@ $purple: purple;
 .neon { color: $neon; }
 .purple { color: $purple; }
 
+
+// F O N T  S I Z E
+
 .p8 { font-size: 8px; }
 .p9 { font-size: 9px; }
 .p10 { font-size: 10px; }
+.p12 { font-size: 12px; }
+.p14 { font-size: 14px; }
+.p16 { font-size: 16px; }
+.p18 { font-size: 18px; }
+.p20 { font-size: 20px; }
+.p22 { font-size: 22px; }
+.p24 { font-size: 24px; }
+.p26 { font-size: 26px; }
+.p28 { font-size: 28px; }
+.p30 { font-size: 30px; }
 
+// T E X T 
+
+.light { font-weight: 100; }
+.centered { text-align: center; }
+
+// M I S C
+
+hr.light { border-color: rgba(255,255,255,.1); }
 
 
 

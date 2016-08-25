@@ -6,6 +6,8 @@
  * # LoginCtrl
  * Manages authentication to any active providers.
  */
+var errorCode;
+
 angular.module('coinioApp')
   .controller('LoginCtrl', function ($scope, Auth, $location, $q, Ref, $timeout) {
     $scope.oauthLogin = function(provider) {
@@ -25,28 +27,48 @@ angular.module('coinioApp')
       );
     };
 
-    $scope.createAccount = function(email, pass, confirm) {
-      $scope.err = null;
-      if( !pass ) {
-        $scope.err = 'Please enter a password';
+    $scope.createAccount = function(email, username, pass, confirm) {
+      if(firebase.auth().currentUser) {
+        console.log("User already signed in", firebase.auth().currentUser.uid)
+      } else {
+        $scope.err = null;
+        if( !pass ) {
+          $scope.err = 'Please enter a password';
+        }
+        else if( pass !== confirm ) {
+          $scope.err = 'Passwords do not match';
+        } else if(pass.length < 6) {
+          $scope.err = 'Passwords must be at least 6 characters';
+        }
+        else {
+          firebase.auth().createUserWithEmailAndPassword(email, pass).catch(function(error) {
+            // Handle Errors here.
+            errorCode = error.code;
+            var errorMessage = error.message;
+            console.log(errorCode);
+            console.log("^1");
+            // ...
+            }).then(function () {
+              // authenticate so we have permission to write to Firebase
+              return firebase.auth().signInWithEmailAndPassword(email, pass);
+            })
+            .then(createProfile)
+            .then(redirect, showError);
+            //if (!errorCode){
+              console.log(errorCode);
+              console.log("^2");
+              console.log(firebase.auth().currentUser.uid)
+              storeUserData(firebase.auth().currentUser.uid, username, email); 
+        //}
       }
-      else if( pass !== confirm ) {
-        $scope.err = 'Passwords do not match';
-      } else if(pass.length < 6) {
-        $scope.err = 'Passwords must be at least 6 characters';
-      }
-      else {
-        firebase.auth().createUserWithEmailAndPassword(email, pass).catch(function(error) {
-          // Handle Errors here.
-          var errorCode = error.code;
-          var errorMessage = error.message;
-          // ...
-          }).then(function () {
-            // authenticate so we have permission to write to Firebase
-            return firebase.auth().signInWithEmailAndPassword(email, pass);
-          })
-          .then(createProfile)
-          .then(redirect, showError);
+    }
+
+      function storeUserData(userId, username, email) {
+        firebase.database().ref('users/' + username).set({
+          userId: userId,
+          email: email,
+          timestamp: firebase.database.ServerValue.TIMESTAMP
+        });
       }
 
       function createProfile(user) {
@@ -61,6 +83,7 @@ angular.module('coinioApp')
             }
           });
         });
+
         return def.promise;
       }
     };

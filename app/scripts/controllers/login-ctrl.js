@@ -23,6 +23,10 @@ angular.module('coinioApp')
     $scope.passwordLogin = function(email, pass) {
       $scope.err = null;
       firebase.auth().signInWithEmailAndPassword(email, pass).then(
+        function(result) {
+          //console.log(result.uid);
+        })
+          .then(
         redirect, showError
       );
     };
@@ -50,18 +54,27 @@ angular.module('coinioApp')
             // ...
             }).then(function () {
               // authenticate so we have permission to write to Firebase
+              console.log("authenticate - (sign in)");
               return firebase.auth().signInWithEmailAndPassword(email, pass);
+            })
+            .then(
+              function(result) {
+                //console.log(result.uid);
+                storeUserData(result.uid, username, email);
             })
             .then(createProfile)
             .then(redirect, showError);
-            //if (!errorCode){
-              console.log(errorCode);
-              console.log("^2");
-              console.log(firebase.auth().currentUser.uid)
-              storeUserData(firebase.auth().currentUser.uid, username, email); 
-        //}
-      }
+            
+
+            console.log("email/pass stored");
+
+            //console.log(firebase.auth().currentUser.uid);
+            //console.log(Auth.currentUser.uid);
+            //storeUserData(firebase.auth().currentUser.uid, username, email); 
+        }
     }
+
+
 
       function storeUserData(userId, username, email) {
         firebase.database().ref('users/' + username).set({
@@ -109,5 +122,9 @@ angular.module('coinioApp')
       $scope.err = err;
     }
 
+    function sendEmailVerification() {
+      firebase.auth().currentUser.sendEmailVerification().then(function() {
+      });
+    }
 
   });

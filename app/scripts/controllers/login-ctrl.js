@@ -54,7 +54,7 @@ angular.module('coinioApp')
             // ...
             }).then(function () {
               // authenticate so we have permission to write to Firebase
-              console.log("authenticate - (sign in)");
+              //console.log("authenticate - (sign in)");
               return firebase.auth().signInWithEmailAndPassword(email, pass);
             })
             .then(
@@ -65,12 +65,8 @@ angular.module('coinioApp')
             .then(createProfile)
             .then(redirect, showError);
             
+            //console.log("email/pass stored");
 
-            console.log("email/pass stored");
-
-            //console.log(firebase.auth().currentUser.uid);
-            //console.log(Auth.currentUser.uid);
-            //storeUserData(firebase.auth().currentUser.uid, username, email); 
         }
     }
 

@@ -29,27 +29,12 @@
       <div class="navbar" role="navigation">
         <div class="container-fluid">
           <div class="navbar-header">
-
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
               <span class="sr-only">Toggle navigation</span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-          </div>
-
-          <div class="collapse navbar-collapse" id="js-navbar-collapse">
-
-            <ul class="nav navbar-nav pull-right">
-              <li class="active"><a href="#/">Home</a></li>
-              <!-- //angularfire -->
-              <li><a ng-href="#/chat">chat</a></li>
-              <li>
-              <a ng-hide-auth="" href="#/login">log in</a>
-              <a ng-show-auth="" href="#/account">account</a>
-            </li>
-
-            </ul>
           </div>
         </div>
       </div>
@@ -120,9 +105,11 @@
     <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase-database.js"></script>
     <script src="scripts/configfb.js"></script>
+    <script src="scripts/modbootstrap.js"></script>
     
     <script src="scripts/directives/usericon.js"></script>
     <script src="scripts/filters/cards.js"></script>
+    <script src="scripts/directives/tooltips.js"></script>
     <!-- endbuild -->
 
 </body>

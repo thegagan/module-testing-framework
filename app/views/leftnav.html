@@ -4,11 +4,20 @@
 <div class="clearfix"></div>
 <div class="col-xs-12">
 	<div id="navLinks">
-		<p class="centered">
-			Hi, BetaUser99
-			&ensp;
-			<a href=""><i class="glyphicon glyphicon-cog"></i></a></li>
-		</p>
+		<div class="centered">
+			Hi, {{User.data.name}}
+			<div class="dropdown inline-block" style="margin-left: 10px;">
+				<a href="" data-toggle="dropdown"><i class="fa fa-bars" data-toggle="tooltip" data-title="menu" data-placement="top"></i></a>
+				<div class="dropdown-menu">
+					<ul>
+						<li><a href="#/account"><i class="glyphicon glyphicon-cog"></i>Settings</a></li>
+						<li><a href="#/"><i class="fa fa-home"></i>Home</a></li>
+						<li><a href="#/chat"><i class="fa fa-comments"></i>Chat</a></li>
+						<li><a href="#/logout"><i class="fa fa-key"></i>Logout</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
 <div class="col-xs-6 centered">

@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * @ngdoc overview
  * @name coinioApp
@@ -20,7 +18,5 @@ angular.module('coinioApp', [
     'firebase.ref',
     'firebase.auth'
   ], function() {
-    
-     // stuff goes here
 
   });

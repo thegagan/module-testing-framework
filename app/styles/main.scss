@@ -97,7 +97,6 @@ input.input-neon, select.select-neon, label.btn-neon {
     &:hover {
       border-color: $neon;
       color: $neon;
-      i { margin-left: 20px; }
     }
     i { 
       @include transition(all .2s ease-in-out); 
@@ -151,18 +150,16 @@ input.input-neon, select.select-neon, label.btn-neon {
   }
   .body {
     padding: 10px;
+    h3 { margin-top: 0px; }
     .hfm-buttons {
       .zxc { opacity: 0; }
       a {
         @include transition(all .3s ease-in-out);
         text-shadow: none;
-        &:nth-child(1) { color: $green; 
+        &:nth-of-type(1) { color: $green; 
           &:hover { text-shadow: 0px 0px 10px $green, 0px 0px 20px $green; }
         }
-        &:nth-child(2) { color: $gray;
-          &:hover { text-shadow: 0px 0px 10px $gray, 0px 0px 20px $gray; }
-        } 
-        &:nth-child(3) { color: $red;
+        &:nth-of-type(2) { color: $red;
           &:hover { text-shadow: 0px 0px 10px $red, 0px 0px 20px $red; }
         }
         &:hover {
@@ -174,3 +171,21 @@ input.input-neon, select.select-neon, label.btn-neon {
 }
 
 
+// N A V I G A T I O N
+
+#navLinks {
+  .dropdown {
+    > a { }
+    .dropdown-menu { 
+      width: 100px !important;
+      ul {
+        li {
+          a {
+            text-align: left; 
+            &:hover { }
+          }
+        }
+      }
+    }
+  }
+}

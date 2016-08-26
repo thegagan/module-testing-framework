@@ -199,6 +199,9 @@ How to use:
 .block {
   display: block; }
 
+.inline-block {
+  display: inline-block; }
+
 h1 {
   font-weight: 100; }
 
@@ -267,6 +270,31 @@ h1 {
 
 .centered {
   text-align: center; }
+
+.dropdown .dropdown-menu {
+  background-color: black;
+  border: 1px solid rgba(255, 255, 255, 0.2); }
+  .dropdown .dropdown-menu ul {
+    padding: 0;
+    margin: 0;
+    width: auto; }
+    .dropdown .dropdown-menu ul li {
+      padding: 0; }
+      .dropdown .dropdown-menu ul li a {
+        font-weight: 100;
+        padding: 2px 0 2px 10px;
+        display: block; }
+        .dropdown .dropdown-menu ul li a:hover {
+          color: white;
+          font-weight: 500;
+          text-decoration: none;
+          background-color: rgba(255, 255, 255, 0.1); }
+          .dropdown .dropdown-menu ul li a:hover i {
+            margin-left: 3px; }
+        .dropdown .dropdown-menu ul li a i {
+          -webkit-transition: all 0.3s ease-in-out;
+          transition: all 0.3s ease-in-out;
+          padding: 2px 5px; }
 
 hr.light {
   border-color: rgba(255, 255, 255, 0.1); }
@@ -355,8 +383,6 @@ input.input-neon, select.select-neon, label.btn-neon {
   .btn.btn-neon:hover {
     border-color: #00aaed;
     color: #00aaed; }
-    .btn.btn-neon:hover i {
-      margin-left: 20px; }
   .btn.btn-neon i {
     -webkit-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
@@ -397,25 +423,28 @@ input.input-neon, select.select-neon, label.btn-neon {
       transition: all 1s ease-in-out; }
   .predictionCard .body {
     padding: 10px; }
+    .predictionCard .body h3 {
+      margin-top: 0px; }
     .predictionCard .body .hfm-buttons .zxc {
       opacity: 0; }
     .predictionCard .body .hfm-buttons a {
       -webkit-transition: all 0.3s ease-in-out;
       transition: all 0.3s ease-in-out;
       text-shadow: none; }
-      .predictionCard .body .hfm-buttons a:nth-child(1) {
+      .predictionCard .body .hfm-buttons a:nth-of-type(1) {
         color: #7ED321; }
-        .predictionCard .body .hfm-buttons a:nth-child(1):hover {
+        .predictionCard .body .hfm-buttons a:nth-of-type(1):hover {
           text-shadow: 0px 0px 10px #7ED321, 0px 0px 20px #7ED321; }
-      .predictionCard .body .hfm-buttons a:nth-child(2) {
-        color: #9b9b9b; }
-        .predictionCard .body .hfm-buttons a:nth-child(2):hover {
-          text-shadow: 0px 0px 10px #9b9b9b, 0px 0px 20px #9b9b9b; }
-      .predictionCard .body .hfm-buttons a:nth-child(3) {
+      .predictionCard .body .hfm-buttons a:nth-of-type(2) {
         color: #FC3850; }
-        .predictionCard .body .hfm-buttons a:nth-child(3):hover {
+        .predictionCard .body .hfm-buttons a:nth-of-type(2):hover {
           text-shadow: 0px 0px 10px #FC3850, 0px 0px 20px #FC3850; }
       .predictionCard .body .hfm-buttons a:hover {
         color: black; }
+
+#navLinks .dropdown .dropdown-menu {
+  width: 100px !important; }
+  #navLinks .dropdown .dropdown-menu ul li a {
+    text-align: left; }
 
 /*# sourceMappingURL=main.css.map */

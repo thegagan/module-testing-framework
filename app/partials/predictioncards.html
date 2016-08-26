@@ -3,10 +3,7 @@
 		<div class="btn-group radioSpacing" data-toggle="buttons">
 		  <label class="btn btn-neon active white">
 		    <input type="radio" name="options" id="option1" autocomplete="off" checked> all
-		  </label>
-			<label class="btn btn-neon white">
-		    <input type="radio" name="options" id="option1" autocomplete="off" checked> hot
-		  </label>
+	    	</label>
 		  <label class="btn btn-neon white spacing">
 		    <input type="radio" name="options" id="option1" autocomplete="off" checked> you
 		  </label>
@@ -56,9 +53,12 @@
 				<p class="centered">Current Return</p>
 				<h3 class="centered" ng-class="colorize(card);">{{card.score > 0 ? '+' + card.score : card.score}}</h3>
 				<p class="centered hfm-buttons">
-					<a href=""><i class="glyphicon glyphicon-ok-circle"></i></a> &ensp;
-					<a href=""><i class="glyphicon glyphicon-adjust"></i></a> &ensp;
-					<a href=""><i class="glyphicon glyphicon-ban-circle"></i></a>
+					<a href="" class="btn btn-link" data-toggle="tooltip" data-title="hype!" data-placement="bottom">
+						<i class="fa fa-rocket"></i>
+					</a>
+					<a href="" class="btn btn-link" data-toggle="tooltip" data-title="fud!" data-placement="bottom">
+						<i class="glyphicon glyphicon-ban-circle"></i>
+					</a>
 				</p>
 			</div>
 			<div class="clearfix"></div>

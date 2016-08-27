@@ -365,6 +365,9 @@ input.input-neon, select.select-neon, label.btn-neon {
     box-shadow: none;
     outline: none; }
 
+.satoshi {
+  letter-spacing: 10px; }
+
 .btn-group.radioSpacing label {
   margin-right: 15px; }
   .btn-group.radioSpacing label.spacing {

@@ -16,12 +16,10 @@
     <link rel="stylesheet" href="styles/fontawesome/font-awesome.css">
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
-
     <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase-database.js"></script>
     <script src="scripts/configfb.js"></script>
-
     <script type="text/javascript">
         initApp = function() {
           firebase.auth().onAuthStateChanged(function(user) {
@@ -48,13 +46,13 @@
                 //}, null, '  ');
               });
               //console.log(uid);
-              document.getElementById('form').style.visibility = 'hidden';
-              document.getElementById('signout').style.visibility = 'visible';
-              document.getElementById('test').textContent = user.email;
+              // document.getElementById('form').style.visibility = 'hidden';
+              // document.getElementById('signout').style.visibility = 'visible';
+              // document.getElementById('test').textContent = user.email;
             } else {
               // User is signed out.
-              document.getElementById('form').style.visibility = 'visible';
-              document.getElementById('signout').style.visibility = 'hidden';
+              // document.getElementById('form').style.visibility = 'visible';
+              // document.getElementById('signout').style.visibility = 'hidden';
               //document.getElementById('account-details').textContent = 'null';
               
             }

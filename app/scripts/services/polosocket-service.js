@@ -8,16 +8,15 @@
 * Service in the coinioApp.
 */
 
+
 var app = angular.module('coinioApp');
-app.service('coinInfo', function (args) {
+app.service('poloSocket', function () {
 
+	
 	this.data = {
-    "ticker": args[0],
-    "price": args[1],
-    "change": args[4],
-    "volume": args[5]
+		 "ticker": "args[0]"
+		// "price": args[1],
+		// "change": args[4],
+		// "volume": args[5]
 	};
-
-  
-
 });

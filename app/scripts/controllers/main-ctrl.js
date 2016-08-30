@@ -42,7 +42,7 @@ angular.module("coinioApp").controller("MainCtrl", function($scope, poloSocket, 
 	  	console.log(args);
 	  }
 	  function tickerEvent (args,kwargs) {
-	  	console.log(args);
+	  	//console.log(args);
 	  	//document.getElementById(args[0]).innerHTML = args[0] + " Price:" + args[1] + " Change:" + args[4] + " Volume:" + args[5];
 	  	//storeTickerData(args);
 	  }
@@ -56,7 +56,7 @@ angular.module("coinioApp").controller("MainCtrl", function($scope, poloSocket, 
 	  //session.subscribe('trollbox', trollboxEvent);
 	  //session.subscribe('BTC_FCT', tickerEvent);
 
-	  console.log(poloSocket)
+	  //console.log(poloSocket)
 	}
 
 
@@ -96,6 +96,36 @@ angular.module("coinioApp").controller("MainCtrl", function($scope, poloSocket, 
 	  connection.close();
 	}
 	// WEBSOCKET END //
+
+
+
+	// START DAILCOIN CHECK //
+	//checkDailyCo1ns();
+
+	var db = firebase.database();
+	var ref = db.ref("users");
+
+	function addDailyCo1ns(user, coins){
+		console.log(coins)
+	  firebase.database().ref('users/' + user).update({
+	    co1ns: coins+10,
+	    dailyvisit: "true"
+	  });
+	}
+
+	function checkDailyCo1ns() {
+		var userId = firebase.auth().currentUser.uid;
+		console.log(userId);
+		firebase.database().ref('/users/').orderByChild('id').equalTo(userId).on("child_added", function(snapshot) {
+			console.log(snapshot.val().dailyvisit);
+			console.log(snapshot.key);
+			if (snapshot.val().dailyvisit == "false"){
+				console.log("test");
+				addDailyCo1ns(snapshot.key, snapshot.val().co1ns);
+			}
+	});
+}
+	// END DAILCOIN CHECK //
 
 
 });

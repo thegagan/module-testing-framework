@@ -50,7 +50,7 @@ angular.module('coinioApp')
             errorCode = error.code;
             var errorMessage = error.message;
             console.log(errorCode);
-            console.log("^1");
+            //console.log("^1");
             // ...
             }).then(function () {
               // authenticate so we have permission to write to Firebase
@@ -60,7 +60,9 @@ angular.module('coinioApp')
             .then(
               function(result) {
                 //console.log(result.uid);
-                storeUserData(result.uid, username, email);
+                if(!errorCode){
+                  storeUserData(result.uid, username, email);
+                }
             })
             .then(createProfile)
             .then(redirect, showError);
@@ -72,11 +74,16 @@ angular.module('coinioApp')
 
 
 
-      function storeUserData(userId, username, email) {
-        firebase.database().ref('users/' + username).set({
-          userId: userId,
+      function storeUserData(userId, name, email) {
+        firebase.database().ref('users/' + name).set({
+          id: userId,
           email: email,
-          timestamp: firebase.database.ServerValue.TIMESTAMP
+          co1ns: 0,
+          co1nspent: 0,
+          dailyvisit: false,
+          lvl: 0,
+          pts: 0,
+          joined: firebase.database.ServerValue.TIMESTAMP
         });
       }
 

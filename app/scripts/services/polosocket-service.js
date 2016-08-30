@@ -9,19 +9,104 @@
 var app = angular.module('coinioApp');
 app.factory('PoloSocket', function ($websocket) {
 	
-	var dataStream = $websocket('ws://api.poloniex.com');
-	var collection = [];
+	// var dataStream = $websocket('wss://api.poloniex.com');
+	// var collection = [];
 
-	dataStream.onMessage(function(message) {
-		collection.push(JSON.parse(message.data))
+	// new autobahn.Connection({
+	// 	url: 'wss://api.poloniex.com',
+	//   realm: "realm1"
+	// });
+
+	// dataStream.onMessage(function(message) {
+	// 	collection.push(JSON.parse(message.data))
+	// });
+
+ //  function marketEvent (message) {
+ //  	console.log(message);
+ //  }
+
+ //  var methods = {
+ //    collection: collection,
+ //    get: function() {
+ //      dataStream.send(JSON.stringify({ action: 'get' }));
+ //    },
+ //    onOpen: function() {
+ //    	alert('ITS OPEN');
+ //    },
+ //    onError: function() {
+ //    	alert('ITS ERRORED');
+ //    }
+ //  };
+
+	// return methods;
+
+
+	// var args = "";
+	var wsuri = "wss://api.poloniex.com";
+	var connection = new autobahn.Connection({
+	  url: wsuri,
+	  realm: "realm1"
 	});
 
-  var methods = {
-    collection: collection,
-    get: function() {
-      dataStream.send(JSON.stringify({ action: 'get' }));
-    }
-  };
+	connection.onopen = function (session) {
+		function marketEvent (args,kwargs) {
+	  	console.log(args);
+	  }
+	  function tickerEvent (args,kwargs) {
+	  	console.log(args);
+	  	// document.getElementById(args[0]).innerHTML = args[0] + " Price:" + args[1] + " Change:" + args[4] + " Volume:" + args[5];
+	  	storeTickerData(args);
+	  }
+	  function trollboxEvent (args,kwargs) {
+	   	console.log(args);
+	   	// document.getElementById("trollbox").innerHTML += args[2] + "(" + args[4] +") " + args[3] + "<br>";
+	  }
+	  
+	  session.subscribe('BTC_FCT', marketEvent);
+	  session.subscribe('ticker', tickerEvent);
+	  session.subscribe('trollbox', trollboxEvent);
+	  session.subscribe('BTC_FCT', tickerEvent);
 
-	return methods;
+	  // console.log(PoloSocket)
+	}
+
+
+	connect();
+
+
+	connection.onclose = function () {
+	  console.log("Websocket connection closed");
+	}
+	   
+	var storeTickerData = function (args) {
+	  this.data = {
+	    "ticker": args[0],
+	    "price": args[1],
+	    "change": args[4],
+	    "volume": args[5]
+	  };
+	};                    
+
+	// function writeToScreen(message) {
+	//     document.getElementById("output").innerHTML += message + "<br>";
+	// }
+
+	connection.onmessage = function (event) {
+	  console.log(event.data);
+	  writeToScreen(self);
+	}
+
+
+	function connect()
+	{
+	  connection.open();
+	}
+
+	function disconnect()
+	{
+	  connection.close();
+	}
+
+	return storeTickerData();
+
 });

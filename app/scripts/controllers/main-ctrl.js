@@ -11,7 +11,7 @@
 var app = angular.module("coinioApp");
 app.controller("MainCtrl", 
 [ "$scope", "PoloSocket", "$websocket", "NewPrediction", "AllCoins", "User", "pCard", 
-function($scope, PoloSocket, $websocket, NewPrediction, AllCoins, User, pCard) {
+function($scope, PoloSocket, NewPrediction, AllCoins, User, pCard) {
 	$scope.awesomeThings = [
 	  "HTML5 Boilerplate",
 	  "AngularJS",

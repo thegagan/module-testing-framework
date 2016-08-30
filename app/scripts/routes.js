@@ -57,34 +57,26 @@ angular.module('coinioApp')
     // before trying to access that route
   .config(['$routeProvider', function($routeProvider) {
     $routeProvider
-      // .when('/', {
-      //   templateUrl: 'views/main.html',
-      //   controller: 'MainCtrl'
-      // })
       .when('/', {
-        templateUrl: 'views/welcome.html',
-        controller: 'LoginCtrl'
+        templateUrl: 'views/main.html',
+        controller: 'MainCtrl'
       })
       .when('/login', {
         templateUrl: 'views/login.html',
         controller: 'LoginCtrl'
       })
-      .whenAuthenticated('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+      .when('/u/:userName', {
+        templateUrl: 'views/profile.html',
+        controller: 'ProfileCtrl'
       })
-      // .whenAuthenticated('/u/:userName', {
-      //   templateUrl: 'views/profile.html',
-      //   controller: 'ProfileCtrl'
-      // })
-      // .whenAuthenticated('/chat', {
-      //   templateUrl: 'views/chat.html',
-      //   controller: 'ChatCtrl'
-      // })
-      // .whenAuthenticated('/account', {
-      //   templateUrl: 'views/account.html',
-      //   controller: 'AccountCtrl'
-      // })
+      .when('/chat', {
+        templateUrl: 'views/chat.html',
+        controller: 'ChatCtrl'
+      })
+      .whenAuthenticated('/account', {
+        templateUrl: 'views/account.html',
+        controller: 'AccountCtrl'
+      })
       .otherwise({redirectTo: '/'});
   }])
 

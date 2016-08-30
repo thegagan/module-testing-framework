@@ -79,12 +79,7 @@ app.factory('PoloSocket', function ($websocket) {
 	}
 	   
 	var storeTickerData = function (args) {
-	  this.data = {
-	    "ticker": args[0],
-	    "price": args[1],
-	    "change": args[4],
-	    "volume": args[5]
-	  };
+	  this.data = args;
 	};                    
 
 	// function writeToScreen(message) {
@@ -107,6 +102,6 @@ app.factory('PoloSocket', function ($websocket) {
 	  connection.close();
 	}
 
-	return storeTickerData();
+	return 5;
 
 });

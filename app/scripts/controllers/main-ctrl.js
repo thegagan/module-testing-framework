@@ -101,33 +101,34 @@ function($scope, NewPrediction, AllCoins, User, pCard) {
 	var connect = function() { connection.open(); }
 	var disconnect = function() { connection.close(); }
 	connect();
+
 	
 	// END WEB SOCKET STUFF //
 
 	// START DAILCOIN CHECK //
 	
-	// checkDailyCo1ns();
+	checkDailyCo1ns();
 
-	// function addDailyCo1ns(user, coins){
-	// 	// console.log(coins)
-	//   firebase.database().ref('users/' + user).update({
-	//     co1ns: coins+10,
-	//     dailyvisit: "true"
-	//   });
-	// }
+	function addDailyCo1ns(user, coins){
+		// console.log(coins)
+	  firebase.database().ref('users/' + user).update({
+	    co1ns: coins+10,
+	    dailyvisit: "true"
+	  });
+	}
 
-	// function checkDailyCo1ns() {
-	// 	var userId = firebase.auth().currentUser.uid;
-	// 	// console.log(userId);
-	// 	firebase.database().ref('/users/').orderByChild('id').equalTo(userId).on("child_added", function(snapshot) {
-	// 		// console.log(snapshot.val().dailyvisit);
-	// 		// console.log(snapshot.key);
-	// 		if (snapshot.val().dailyvisit == "false"){
-	// 			// console.log("test");
-	// 			addDailyCo1ns(snapshot.key, snapshot.val().co1ns);
-	// 		}
-	// 	});
-	// }
+	function checkDailyCo1ns() {
+		var userId = firebase.auth().currentUser.uid;
+		//console.log(userId);
+		firebase.database().ref('/users/').orderByChild('id').equalTo(userId).on("child_added", function(snapshot) {
+			// console.log(snapshot.val().dailyvisit);
+			// console.log(snapshot.key);
+			if (snapshot.val().dailyvisit == false){
+				// console.log("test");
+				addDailyCo1ns(snapshot.key, snapshot.val().co1ns);
+			}
+		});
+	}
 
 	// END DAILCOIN CHECK //
 

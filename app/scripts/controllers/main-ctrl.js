@@ -33,8 +33,6 @@ function($scope, PoloSocket, $websocket, NewPrediction, AllCoins, User, pCard) {
 		}
 	};
 
-console.log('meow');
-
 	// WEBSOCKET START //
 	// var wsuri = "wss://api.poloniex.com";
 	// var connection = new autobahn.Connection({

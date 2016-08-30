@@ -11,14 +11,14 @@ angular.module('coinioApp')
   .service('User', function () {
 
   	this.data = {
-			"id": "",
-			"email": "",
-			"name": "",
-			"joined" : "",
-			"pts" : "",
-			"lvl" : "",
-			"dailyvisit" : "",
-			"co1ns" : ""
+			"id": "test",
+			"email": "test",
+			"name": "test",
+			"joined" : "test",
+			"pts" : "test",
+			"lvl" : "test",
+			"dailyvisit" : "test",
+			"co1ns" : "test"
 		};
 
   });

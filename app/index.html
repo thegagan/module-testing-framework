@@ -20,6 +20,8 @@
     <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase-database.js"></script>
     <script src="scripts/configfb.js"></script>
+    <script src="https://autobahn.s3.amazonaws.com/autobahnjs/latest/autobahn.min.jgz"></script>
+    <script src="http://requirejs.org/docs/release/2.1.11/minified/require.js"></script>
     <script type="text/javascript">
         initApp = function() {
           firebase.auth().onAuthStateChanged(function(user) {
@@ -144,6 +146,7 @@
     <script src="scripts/services/allcoin-service.js"></script>
     <script src="scripts/services/newprediction-service.js"></script>
     <script src="scripts/services/cardprediction-service.js"></script>
+    <script src="scripts/services/polosocket-service.js"></script>
 
     <script src="scripts/directives/ngShowAuth.js"></script>
     <script src="scripts/directives/ngHideAuth.js"></script>

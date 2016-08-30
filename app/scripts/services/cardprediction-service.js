@@ -24,19 +24,6 @@ angular.module('coinioApp')
 					"score": "3.65",
 					"hype": "50",
 					"fud": "10",
-				}, {
-					"userName": User.data.name,
-					"userId": User.data.id,
-					"userPts": User.data.pts,
-					"coin": "ETC",
-					"position": "short",
-					"status": "false",
-					"open": ".00325",
-					"close": ".00452",
-					"stop": ".00306",
-					"score": "-3.65",
-					"hype": "15",
-					"fud": "45",
 				}
     	];
 

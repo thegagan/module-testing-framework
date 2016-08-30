@@ -7,7 +7,7 @@
  */
 
 var app = angular.module('coinioApp');
-app.factory('PoloSocket', function ($websocket) {
+app.factory('PoloSocket', function () {
 	
 	// var dataStream = $websocket('wss://api.poloniex.com');
 	// var collection = [];
@@ -62,10 +62,10 @@ app.factory('PoloSocket', function ($websocket) {
 	   	// document.getElementById("trollbox").innerHTML += args[2] + "(" + args[4] +") " + args[3] + "<br>";
 	  }
 	  
-	  session.subscribe('BTC_FCT', marketEvent);
+	  // session.subscribe('BTC_FCT', marketEvent);
 	  session.subscribe('ticker', tickerEvent);
-	  session.subscribe('trollbox', trollboxEvent);
-	  session.subscribe('BTC_FCT', tickerEvent);
+	  // session.subscribe('trollbox', trollboxEvent);
+	  // session.subscribe('BTC_FCT', tickerEvent);
 
 	  // console.log(PoloSocket)
 	}
@@ -102,6 +102,6 @@ app.factory('PoloSocket', function ($websocket) {
 	  connection.close();
 	}
 
-	return 5;
+	return "SOME DUMMY VALUE";
 
 });

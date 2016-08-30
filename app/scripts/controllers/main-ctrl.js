@@ -10,7 +10,7 @@
 
 var app = angular.module("coinioApp");
 app.controller("MainCtrl", 
-[ "$scope", "PoloSocket", "$websocket", "NewPrediction", "AllCoins", "User", "pCard", 
+[ "$scope", "PoloSocket", "NewPrediction", "AllCoins", "User", "pCard", 
 function($scope, PoloSocket, NewPrediction, AllCoins, User, pCard) {
 	$scope.awesomeThings = [
 	  "HTML5 Boilerplate",
@@ -102,7 +102,7 @@ function($scope, PoloSocket, NewPrediction, AllCoins, User, pCard) {
 
 
 	// START DAILCOIN CHECK //
-	//checkDailyCo1ns();
+	// checkDailyCo1ns();
 
 	// var db = firebase.database();
 	// var ref = db.ref("users");

@@ -61,22 +61,30 @@ angular.module('coinioApp')
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
-      .when('/u/:userName', {
-        templateUrl: 'views/profile.html',
-        controller: 'ProfileCtrl'
-      })
-      .when('/chat', {
-        templateUrl: 'views/chat.html',
-        controller: 'ChatCtrl'
-      })
-      .when('/login', {
-        templateUrl: 'views/login.html',
-        controller: 'LoginCtrl'
-      })
-      .whenAuthenticated('/account', {
-        templateUrl: 'views/account.html',
-        controller: 'AccountCtrl'
-      })
+      // .when('/', {
+      //   templateUrl: 'views/welcome.html',
+      //   controller: 'LoginCtrl'
+      // })
+      // .when('/login', {
+      //   templateUrl: 'views/login.html',
+      //   controller: 'LoginCtrl'
+      // })
+      // .whenAuthenticated('/', {
+      //   templateUrl: 'views/main.html',
+      //   controller: 'MainCtrl'
+      // })
+      // .whenAuthenticated('/u/:userName', {
+      //   templateUrl: 'views/profile.html',
+      //   controller: 'ProfileCtrl'
+      // })
+      // .whenAuthenticated('/chat', {
+      //   templateUrl: 'views/chat.html',
+      //   controller: 'ChatCtrl'
+      // })
+      // .whenAuthenticated('/account', {
+      //   templateUrl: 'views/account.html',
+      //   controller: 'AccountCtrl'
+      // })
       .otherwise({redirectTo: '/'});
   }])
 

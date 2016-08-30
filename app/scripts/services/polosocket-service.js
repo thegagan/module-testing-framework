@@ -1,22 +1,27 @@
-'use strict';
-
 /**
-* @ngdoc service
-* @name coinioApp.pcard
-* @description
-* # pcard
-* Service in the coinioApp.
-*/
-
+ * @ngdoc service
+ * @name coinioApp.userService
+ * @description
+ * # userService
+ * Service in the coinioApp.
+ */
 
 var app = angular.module('coinioApp');
-app.service('poloSocket', function () {
-
+app.factory('PoloSocket', function ($websocket) {
 	
-	this.data = {
-		 "ticker": "args[0]"
-		// "price": args[1],
-		// "change": args[4],
-		// "volume": args[5]
-	};
+	var dataStream = $websocket('ws://api.poloniex.com');
+	var collection = [];
+
+	dataStream.onMessage(function(message) {
+		collection.push(JSON.parse(message.data))
+	});
+
+  var methods = {
+    collection: collection,
+    get: function() {
+      dataStream.send(JSON.stringify({ action: 'get' }));
+    }
+  };
+
+	return methods;
 });

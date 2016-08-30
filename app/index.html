@@ -21,8 +21,8 @@
     <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase-database.js"></script>
     <script src="scripts/configfb.js"></script>
     <script src="https://autobahn.s3.amazonaws.com/autobahnjs/latest/autobahn.min.jgz"></script>
-    <script src="http://requirejs.org/docs/release/2.1.11/minified/require.js"></script>
-    <script type="text/javascript">
+    <!-- <script src="http://requirejs.org/docs/release/2.1.11/minified/require.js"></script> -->
+    <!-- <script type="text/javascript">
         initApp = function() {
           firebase.auth().onAuthStateChanged(function(user) {
             if (user) {
@@ -66,7 +66,7 @@
         window.addEventListener('load', function() {
           initApp()
         });
-    </script>
+    </script> -->
 
   </head>
   <body ng-app="coinioApp">
@@ -74,30 +74,14 @@
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    <div id="leftNavContainer" ng-include="'views/leftNav.html'" ng-controller="MainCtrl"></div>
     <!-- Add your site or application content here -->
-    <div class="header" ng-cloak="">
-      <div class="navbar" role="navigation">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div id="mainbody">
       <div class="container">
         <div ng-view=""></div>
       </div>
     </div>
 </div>
-  <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+  <!-- Google Analytics -->
   <script>
     !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
     (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
@@ -107,7 +91,6 @@
     ga('create', 'UA-83251505-1');
     ga('require', 'linkid');
     ga('send', 'pageview');
-    $window.ga('send', 'pageview', { page: $location.url() });
   </script>
 
   <!-- build:js(.) scripts/vendor.js -->
@@ -124,6 +107,8 @@
   <script src="../bower_components/angular-route/angular-route.js"></script>
   <script src="../bower_components/angular-sanitize/angular-sanitize.js"></script>
   <script src="../bower_components/angular-touch/angular-touch.js"></script>
+  <script src="../bower_components/angular-touch/angular-touch.js"></script>
+  <script src="../bower_components/angular-websocket/dist/angular-websocket.js"></script>
   <!-- endbower -->
   <!-- endbuild -->
 

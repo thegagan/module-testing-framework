@@ -16,6 +16,7 @@ angular.module('coinioApp')
 					"userId": User.data.id,
 					"userPts": User.data.pts,
 					"coin": "BTC",
+					"status" : "true",
 					"position": "long",     
 					"open": ".00325",
 					"close": ".00452",
@@ -29,6 +30,7 @@ angular.module('coinioApp')
 					"userPts": User.data.pts,
 					"coin": "ETC",
 					"position": "short",
+					"status": "false",
 					"open": ".00325",
 					"close": ".00452",
 					"stop": ".00306",
@@ -37,22 +39,5 @@ angular.module('coinioApp')
 					"fud": "45",
 				}
     	];
-
-    	var newCard = function() {
-    		//put code here
-    	};
-
-    	var getcard = function() {
-    		//put code here
-    	};
-
-    	var updateHypeFud = function() {
-    		//put code here
-    	};
-
-    	var deleteCard = function() {
-    		//put code here
-    	};
-
 
   });

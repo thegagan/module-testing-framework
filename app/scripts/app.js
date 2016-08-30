@@ -16,7 +16,8 @@ angular.module('coinioApp', [
     'ngTouch',
     'firebase',
     'firebase.ref',
-    'firebase.auth'
+    'firebase.auth',
+    'ngWebSocket'
   ], function() {
 
   });

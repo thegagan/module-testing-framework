@@ -1,4 +1,5 @@
-<div ng-controller="MainCtrl">
+<div>
+  <div id="leftNavContainer" ng-include="'views/leftNav.html'"></div>
   <div class="alert alert-muted" role="alert">
     <button type="button" class="close" data-dismiss="alert">
       <span>&times;</span>
@@ -10,5 +11,5 @@
     </p>
   </div>
 
-  <div ng-include="'partials/predictionCards.html'" ng-controller="MainCtrl"></div>
+  <div ng-include="'partials/predictionCards.html'"></div>
 </div>

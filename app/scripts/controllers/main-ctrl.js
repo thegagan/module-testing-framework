@@ -42,7 +42,6 @@ console.log('meow');
 	//   realm: "realm1"
 	// });
 
-	 
 	// connection.onopen = function (session) {
 	// 	function marketEvent (args,kwargs) {
 	//   	console.log(args);
@@ -102,6 +101,35 @@ console.log('meow');
 	//   connection.close();
 	// }
 	// // WEBSOCKET END //
+
+
+	// START DAILCOIN CHECK //
+	//checkDailyCo1ns();
+
+	var db = firebase.database();
+	var ref = db.ref("users");
+
+	function addDailyCo1ns(user, coins){
+		console.log(coins)
+	  firebase.database().ref('users/' + user).update({
+	    co1ns: coins+10,
+	    dailyvisit: "true"
+	  });
+	}
+
+	function checkDailyCo1ns() {
+		var userId = firebase.auth().currentUser.uid;
+		console.log(userId);
+		firebase.database().ref('/users/').orderByChild('id').equalTo(userId).on("child_added", function(snapshot) {
+			console.log(snapshot.val().dailyvisit);
+			console.log(snapshot.key);
+			if (snapshot.val().dailyvisit == "false"){
+				console.log("test");
+				addDailyCo1ns(snapshot.key, snapshot.val().co1ns);
+			}
+		});
+	}
+	// END DAILCOIN CHECK //
 
 
 }]);

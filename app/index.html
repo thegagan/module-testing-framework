@@ -34,6 +34,10 @@
               var uid = user.uid;
               var providerData = user.providerData;
 
+
+              checkDailyCo1ns();
+              
+
               user.getToken().then(function(accessToken) {
                 //document.getElementById('sign-in-status').textContent = 'Signed in';
                 //document.getElementById('uid').textContent = uid;

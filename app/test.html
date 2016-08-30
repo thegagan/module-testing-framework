@@ -1,81 +1,68 @@
-     <html>
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles/fontawesome/font-awesome.css">
-    <link rel="stylesheet" href="styles/main.css">
-    <!-- endbuild -->
-    <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase-database.js"></script>
-    <script src="scripts/configfb.js"></script>
-    <script src="https://autobahn.s3.amazonaws.com/autobahnjs/latest/autobahn.min.jgz"></script>
-    <script src="http://requirejs.org/docs/release/2.1.11/minified/require.js"></script>
-    <script type="text/javascript">
-        initApp = function() {
-          firebase.auth().onAuthStateChanged(function(user) {
-            if (user) {
-              // User is signed in.
-              var displayName = user.displayName;
-              var email = user.email;
-              var emailVerified = user.emailVerified;
-              var photoURL = user.photoURL;
-              var uid = user.uid;
-              var providerData = user.providerData;
-
-              user.getToken().then(function(accessToken) {
-                //document.getElementById('sign-in-status').textContent = 'Signed in';
-                //document.getElementById('uid').textContent = uid;
-                //document.getElementById('account-details').textContent = JSON.stringify({
-                //  displayName: displayName,
-                //  email: email,
-                //  emailVerified: emailVerified,
-                //  photoURL: photoURL,
-                //  uid: uid,
-                //  accessToken: accessToken,
-                //  providerData: providerData
-                //}, null, '  ');
-              });
-              //console.log(uid);
-              // document.getElementById('form').style.visibility = 'hidden';
-              // document.getElementById('signout').style.visibility = 'visible';
-              // document.getElementById('test').textContent = user.email;
-            } else {
-              // User is signed out.
-              // document.getElementById('form').style.visibility = 'visible';
-              // document.getElementById('signout').style.visibility = 'hidden';
-              //document.getElementById('account-details').textContent = 'null';
-              
-            }
-          }, function(error) {
-            console.log(error);
-          });
-        };
-
-        window.addEventListener('load', function() {
-          initApp()
-        });
-    </script>
-
- <script>
-
- var timestamptest;
- 
-
-var db = firebase.database();
-var ref = db.ref("users");
-
-// Attach an asynchronous callback to read the data at our posts reference
-ref.on("child_changed", function(snapshot) {
-  //console.log(snapshot.key);
-  timestamptest = (snapshot.val());
-  console.log(timestamptest);
-  //console.log(snapshot.val());
-}, function (errorObject) {
-  console.log("The read failed: " + errorObject.code);
-});
+<html>
+	<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="styles/fontawesome/font-awesome.css">
+	<link rel="stylesheet" href="styles/main.css">
+	<!-- endbuild -->
+	<script src="https://www.gstatic.com/firebasejs/3.3.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/3.3.0/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/3.3.0/firebase-database.js"></script>
+	<script src="scripts/configfb.js"></script>
+	<script src="https://autobahn.s3.amazonaws.com/autobahnjs/latest/autobahn.min.jgz"></script>
+	<script src="http://requirejs.org/docs/release/2.1.11/minified/require.js"></script>
 
 
- //SimpleDateFormat sfd = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
- //console.log(new Date(timestamptest));
+	<script>
 
- </script>
+
+
+		var db = firebase.database();
+		var ref = db.ref("users");
+
+		// // Attach an asynchronous callback to read the data at our posts reference
+		// ref.on("child_changed", function(snapshot) {
+		// //console.log(snapshot.key);
+
+		// //console.log(timestamptest);
+		// //console.log(snapshot.val());
+		// }, function (errorObject) {
+		// console.log("The read failed: " + errorObject.code);
+		// });
+
+
+
+		checkDailyCo1ns();
+
+
+		function addDailyCo1ns(user, coins){
+			console.log(coins)
+		  firebase.database().ref('users/' + user).update({
+		    co1ns: coins+10,
+		    dailyvisit: "true"
+		  });
+		}
+
+		function checkDailyCo1ns() {
+			var userId = firebase.auth().currentUser.uid;
+			console.log(userId);
+			firebase.database().ref('/users/').orderByChild('id').equalTo(userId).on("child_added", function(snapshot) {
+				console.log(snapshot.val().dailyvisit);
+				console.log(snapshot.key);
+				if (snapshot.val().dailyvisit == "false"){
+					console.log("test");
+					addDailyCo1ns(snapshot.key, snapshot.val().co1ns);
+				}
+
+
+		});
+
+	}
+
+
+
+	</script>
+
+	</head>
+	<body>
+
 </html>

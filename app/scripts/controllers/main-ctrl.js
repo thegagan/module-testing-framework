@@ -10,8 +10,8 @@
 
 var app = angular.module("coinioApp");
 app.controller("MainCtrl", 
-[ "$scope", "PoloSocket", "NewPrediction", "AllCoins", "User", "pCard", 
-function($scope, PoloSocket, NewPrediction, AllCoins, User, pCard) {
+[ "$scope", "NewPrediction", "AllCoins", "User", "pCard", 
+function($scope, NewPrediction, AllCoins, User, pCard) {
 	$scope.awesomeThings = [
 	  "HTML5 Boilerplate",
 	  "AngularJS",
@@ -22,7 +22,6 @@ function($scope, PoloSocket, NewPrediction, AllCoins, User, pCard) {
 	$scope.User = User;
 	$scope.pCard = pCard;
 	$scope.NewPrediction = NewPrediction;
-	$scope.PoloSocket = PoloSocket;
 
 	$scope.colorize = function(card) {
 		if (card.score > 0) {
@@ -33,82 +32,84 @@ function($scope, PoloSocket, NewPrediction, AllCoins, User, pCard) {
 		}
 	};
 
-	// WEBSOCKET START //
-	// var wsuri = "wss://api.poloniex.com";
-	// var connection = new autobahn.Connection({
-	//   url: wsuri,
-	//   realm: "realm1"
-	// });
 
-	// connection.onopen = function (session) {
-	// 	function marketEvent (args,kwargs) {
-	//   	console.log(args);
-	//   }
-	//   function tickerEvent (args,kwargs) {
-	//   	console.log(args);
-	//   	//document.getElementById(args[0]).innerHTML = args[0] + " Price:" + args[1] + " Change:" + args[4] + " Volume:" + args[5];
-	//   	//storeTickerData(args);
-	//   }
-	//   function trollboxEvent (args,kwargs) {
-	//    	console.log(args);
-	//    	document.getElementById("trollbox").innerHTML += args[2] + "(" + args[4] +") " + args[3] + "<br>";
-	//   }
-	  
-	//   //session.subscribe('BTC_FCT', marketEvent);
-	//   session.subscribe('ticker', tickerEvent);
-	//   //session.subscribe('trollbox', trollboxEvent);
-	//   //session.subscribe('BTC_FCT', tickerEvent);
+	// WEB SOCKET STUFF STARTS HERE
 
-	//   console.log(PoloSocket)
-	// }
+	var poloData = [
+		{
+			"coin"  : "BTC_FCT",
+			"price" : ""
+		}, {
+			"coin"  : "BTC_ETH",
+			"price" : ""
+		}, {
+			"coin"  : "BTC_ETC",
+			"price" : ""
+		}, {
+			"coin"  : "BTC_DASH",
+			"price" : ""
+		}, {
+			"coin"  : "BTC_LSK",
+			"price" : ""
+		}, {
+			"coin"  : "BTC_ESTEEM",
+			"price" : ""
+		}, {
+			"coin"  : "BTC_XMR",
+			"price" : ""
+		}, {
+			"coin"  : "BTC_DASH",
+			"price" : ""
+		}
+	];
 
+	var wsuri = "wss://api.poloniex.com";
+	var connection = new autobahn.Connection({
+	  url: wsuri,
+	  realm: "realm1"
+	});
 
-	// connect();
+	connection.onopen = function (session) {
+		function marketEvent (args,kwargs) {
+	  	// console.log(args);
+	  }
+	  function tickerEvent (args,kwargs) {
+  		// console.log(poloData);
+  		var i = 0;
+  		if (args[0].startsWith("BTC_")) {
+  			for (i=0;i<poloData.length; i++) {
+  				if (poloData[i].coin == args[0]) {
+	  				poloData[i].price = args[1];	  				
+	  				console.log("Updated" + poloData[i].coin)
+  				}
+  			}
+  		}
+  		else return
 
-	// connection.onclose = function () {
-	//   console.log("Websocket connection closed");
-	// }
-	   
-	// var storeTickerData = function (args) {
-	//   this.data = {
-	//     "ticker": args[0],
-	//     "price": args[1],
-	//     "change": args[4],
-	//     "volume": args[5]
-	//   };
-	// };                    
+	  }
+	  function trollboxEvent (args,kwargs) {
+	   	// console.log(args);
+	  }
+	  // session.subscribe('BTC_FCT', marketEvent);
+	  session.subscribe("ticker", tickerEvent);
+	  // session.subscribe('trollbox', trollboxEvent);
+	  // session.subscribe('BTC_FCT', tickerEvent);
+	}
 
-
-	// function writeToScreen(message) {
-	//     document.getElementById("output").innerHTML += message + "<br>";
-	// }
-
-	// connection.onmessage = function (event) {
-	//   console.log(event.data);
-	//   writeToScreen(self);
-	// }
-
-
-	// function connect()
-	// {
-	//   connection.open();
-	// }
-
-	// function disconnect()
-	// {
-	//   connection.close();
-	// }
-	// // WEBSOCKET END //
-
+	connection.onclose = function () { console.log("Websocket connection closed"); }          
+	connection.onmessage = function (event) { writeToScreen(self); }
+	var connect = function() { connection.open(); }
+	var disconnect = function() { connection.close(); }
+	connect();
+	
+	// END WEB SOCKET STUFF //
 
 	// START DAILCOIN CHECK //
+	
 	// checkDailyCo1ns();
 
-	// var db = firebase.database();
-	// var ref = db.ref("users");
-
 	// function addDailyCo1ns(user, coins){
-	// 	console.log(coins)
+	// 	// console.log(coins)
 	//   firebase.database().ref('users/' + user).update({
 	//     co1ns: coins+10,
 	//     dailyvisit: "true"
@@ -117,16 +118,17 @@ function($scope, PoloSocket, NewPrediction, AllCoins, User, pCard) {
 
 	// function checkDailyCo1ns() {
 	// 	var userId = firebase.auth().currentUser.uid;
-	// 	console.log(userId);
+	// 	// console.log(userId);
 	// 	firebase.database().ref('/users/').orderByChild('id').equalTo(userId).on("child_added", function(snapshot) {
-	// 		console.log(snapshot.val().dailyvisit);
-	// 		console.log(snapshot.key);
+	// 		// console.log(snapshot.val().dailyvisit);
+	// 		// console.log(snapshot.key);
 	// 		if (snapshot.val().dailyvisit == "false"){
-	// 			console.log("test");
+	// 			// console.log("test");
 	// 			addDailyCo1ns(snapshot.key, snapshot.val().co1ns);
 	// 		}
 	// 	});
 	// }
+
 	// END DAILCOIN CHECK //
 
 

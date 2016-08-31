@@ -16,6 +16,7 @@ How to use:
     animation: bounce 800ms ease-out;
 
  */
+@import url(sweetalert.css);
 @-webkit-keyframes bounce {
   0% {
     -webkit-transform: translateY(-100%);
@@ -366,7 +367,7 @@ input.input-neon, select.select-neon, label.btn-neon {
     outline: none; }
 
 .satoshi {
-  letter-spacing: 10px; }
+  letter-spacing: 8px; }
 
 .btn-group.radioSpacing label {
   margin-right: 15px; }

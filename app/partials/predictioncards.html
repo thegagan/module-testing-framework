@@ -1,23 +1,23 @@
 <div class="form-group col-xs-12">
-	<form>
+	<form name="filterCards" ng-model="filterCards">
 		<div class="btn-group radioSpacing" data-toggle="buttons">
 		  <label class="btn btn-neon active white">
-		    <input type="radio" name="options" id="option1" autocomplete="off" checked> all
+		    <input type="radio" name="options" value="all" autocomplete="off" checked> all
 	    	</label>
 		  <label class="btn btn-neon white spacing">
-		    <input type="radio" name="options" id="option1" autocomplete="off" checked> you
+		    <input type="radio" name="options" value="" autocomplete="off" checked> you
 		  </label>
 		  <label class="btn btn-neon white">
-		    <input type="radio" name="options" id="option1" autocomplete="off" checked> BTC
+		    <input type="radio" name="options" value="BTC" autocomplete="off" checked> BTC
 		  </label>
 		  <label class="btn btn-neon white">
-		    <input type="radio" name="options" id="option2" autocomplete="off"> ETH
+		    <input type="radio" name="options" value="ETH" autocomplete="off"> ETH
 		  </label>
 		  <label class="btn btn-neon white">
-		    <input type="radio" name="options" id="option2" autocomplete="off"> ETC
+		    <input type="radio" name="options" value="ETC" autocomplete="off"> ETC
 		  </label>
 		  <label class="btn btn-neon white">
-		    <input type="radio" name="options" id="option2" autocomplete="off"> FCT
+		    <input type="radio" name="options" value="FCT" autocomplete="off"> FCT
 		  </label>
 		</div>
 	</form>

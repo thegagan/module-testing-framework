@@ -8,7 +8,7 @@
  * Service in the coinioApp.
  */
 angular.module('coinioApp')
-  .service('pCard', function (NewPrediction, User) {
+  .service('pCard', function (nCard, User) {
     // AngularJS will instantiate a singleton by calling "new" on this function
     	this.data = [
   			{

@@ -2,6 +2,7 @@
 @import '_fonts.scss';
 @import '_transitions.scss';
 @import '_atomic.scss';
+@import 'sweetalert.css';
 
 html, body { 
   padding: 0; margin: 0; height: 100%; 
@@ -77,7 +78,7 @@ input.input-neon, select.select-neon, label.btn-neon {
 }
 
 .satoshi {
-  letter-spacing: 10px;
+  letter-spacing: 8px;
 }
 
 .btn-group {

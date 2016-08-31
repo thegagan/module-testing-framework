@@ -10,8 +10,8 @@
 
 var app = angular.module("coinioApp");
 app.controller("MainCtrl", 
-[ "$scope", "NewPrediction", "AllCoins", "User", "pCard", 
-function($scope, NewPrediction, AllCoins, User, pCard) {
+[ "$scope", "pCard", "nCard", "AllCoins", "User", 
+function($scope, pCard, nCard, AllCoins, User) {
 	$scope.awesomeThings = [
 	  "HTML5 Boilerplate",
 	  "AngularJS",
@@ -21,7 +21,7 @@ function($scope, NewPrediction, AllCoins, User, pCard) {
 	$scope.AllCoins = AllCoins;
 	$scope.User = User;
 	$scope.pCard = pCard;
-	$scope.NewPrediction = NewPrediction;
+	$scope.nCard = nCard;
 
 	$scope.colorize = function(card) {
 		if (card.score > 0) {
@@ -101,7 +101,7 @@ function($scope, NewPrediction, AllCoins, User, pCard) {
 	var connect = function() { connection.open(); }
 	var disconnect = function() { connection.close(); }
 	connect();
-	
+
 	// END WEB SOCKET STUFF //
 
 	// START DAILCOIN CHECK //

@@ -18,7 +18,7 @@
   <div class="row">
     <form role="form" id="loginForm" class="form-inline" novalidate>
     
-      <div class="form-group col-xs-12" ng-hide="createMode">
+      <div class="form-group col-xs-12">
         <label for="loginEmail" class="text-center" tooltip data-toggle="tooltip" data-title="Email">
           <i class="fa fa-envelope-o"></i>
         </label>
@@ -26,22 +26,22 @@
       </div>
 
       <div class="form-group col-xs-12" ng-cloak ng-show="createMode">
-        <label for="loginusername" class="text-center" tooltip data-toggle="tooltip" data-title="Email">
-          <i class="fa fa-envelope-o"></i>
+        <label for="loginusername" class="text-center" tooltip data-toggle="tooltip" data-title="Username">
+          <i class="fa fa-user"></i>
         </label>
         <input id="loginusername" required name="username" type="username" ng-model="username" class="form-control input-neon" />
       </div>  
 
       <div class="form-group col-xs-12">
         <label for="loginPass" class="text-center" tooltip data-toggle="tooltip" data-title="password">
-          <i class="fa fa-key"></i>
+          <i class="fa fa-lock"></i>
         </label>
         <input id="loginPass" required name="pass" type="password" ng-model="pass" class="form-control input-neon" />
       </div>
 
       <div class="form-group col-xs-12" ng-cloak ng-show="createMode">
         <label for="loginConfirm" class="text-center" tooltip data-toggle="tooltip" data-title="verify password">
-          <i class="fa fa-key"></i></label>
+          <i class="fa fa-lock"></i></label>
         <input id="loginConfirm" required name="confirm" type="password" ng-model="confirm" class="form-control input-neon" />
       </div>
 
@@ -67,15 +67,18 @@
 <h3 class="text-center">
   Why Join?
 </h3>
-<p class="gray text-justify">
-  Join our movement to bring credibility to cryptocurrency trading.
+<p class="white text-center">
+  Join our movement to bring credibility to crypto trading.
 </p>
 <p class="gray text-justify">
-  Create price predictions and build credibility based on total points earned or lost. Share your public profile to build reputation and attract followers.
+  <b>Celebrity.</b> Share public price predictions build credibility based on track record.
 </p>
 <p class="gray text-justify">
-  Login daily to recieve 10 COIN. Vote on others' predictions and gather price insights based on shifting trends in hype/fud sentiment.
+  <b>Credibility.</b> Follow the best crypto traders to gain insight into price moves before they happen.
 </p>
 <p class="gray text-justify">
-  Have meaningful discussions about recent news, community events, and price changes based on reliable, credible, sources from within the trading community.
+  <b>Community.</b> Login daily to recieve 10 COIN. Spend them to vote on community predictions and participate in forming public sentiment <i>(hype/fud)</i>.
+</p>
+<p class="gray text-justify">
+  
 </p>

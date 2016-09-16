@@ -1,23 +1,23 @@
 /*
 Error: Undefined mixin 'transition'.
-        on line 106 of _atomic.scss, in `transition'
-        from line 106 of _atomic.scss
+        on line 118 of _atomic.scss, in `transition'
+        from line 118 of _atomic.scss
 
-101: 						text-decoration: none;
-102: 						background-color: rgba(255,255,255,.1);
-103: 						i { margin-left: 3px; }
-104: 					} 
-105: 					i { 
-106: 						@include transition(all .3s ease-in-out);
-107: 						padding: 2px 5px; 
-108: 					}
-109: 				}
-110: 			}
-111: 		}
+113: 						text-decoration: none;
+114: 						background-color: rgba(255,255,255,.1);
+115: 						i { margin-left: 3px; }
+116: 					} 
+117: 					i { 
+118: 						@include transition(all .3s ease-in-out);
+119: 						padding: 2px 5px; 
+120: 					}
+121: 				}
+122: 			}
+123: 		}
 
 Backtrace:
-_atomic.scss:106:in `transition'
-_atomic.scss:106
+_atomic.scss:118:in `transition'
+_atomic.scss:118
 /usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:351:in `block in visit_mixin'
 /usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/stack.rb:98:in `block in with_mixin'
 /usr/local/lib/ruby/gems/2.3.0/gems/sass-3.4.22/lib/sass/stack.rb:115:in `with_frame'
@@ -125,4 +125,4 @@ _atomic.scss:106
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined mixin 'transition'.\A         on line 106 of _atomic.scss, in `transition'\A         from line 106 of _atomic.scss\A \A 101: 						text-decoration: none;\A 102: 						background-color: rgba(255,255,255,.1);\A 103: 						i { margin-left: 3px; }\A 104: 					} \A 105: 					i { \A 106: 						@include transition(all .3s ease-in-out);\A 107: 						padding: 2px 5px; \A 108: 					}\A 109: 				}\A 110: 			}\A 111: 		}"; }
+  content: "Error: Undefined mixin 'transition'.\A         on line 118 of _atomic.scss, in `transition'\A         from line 118 of _atomic.scss\A \A 113: 						text-decoration: none;\A 114: 						background-color: rgba(255,255,255,.1);\A 115: 						i { margin-left: 3px; }\A 116: 					} \A 117: 					i { \A 118: 						@include transition(all .3s ease-in-out);\A 119: 						padding: 2px 5px; \A 120: 					}\A 121: 				}\A 122: 			}\A 123: 		}"; }

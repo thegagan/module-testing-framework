@@ -32,7 +32,6 @@ function($scope, pCard, nCard, AllCoins, User) {
 		}
 	};
 
-
 	// WEB SOCKET STUFF STARTS HERE
 
 	var poloData = [

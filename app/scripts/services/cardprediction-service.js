@@ -15,6 +15,7 @@ angular.module('coinioApp')
 					"userName": User.data.name,
 					"userId": User.data.id,
 					"userPts": User.data.pts,
+					"userLvl": User.data.lvl,
 					"coin": "BTC",
 					"status" : "true",
 					"position": "long",     

@@ -25,13 +25,4 @@ angular.module('coinioApp')
     	"position" : pCard.data.position
     };
 
-    $scope.setUserIcon = function () {
-    	if (User.data.lvl == 0) {
-    		User.data.icon = "\<h1\>OKAY\<\/h1\>";
-  		}
-  		else
-  			"WOMP"
-    };
-    $scope.setUserIcon();
-
   });

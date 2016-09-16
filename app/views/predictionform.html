@@ -1,49 +1,54 @@
 <!--        S T A R T    P R E D I C T I O N    F O R M         -->
-<div class="col-xs-12">
-	<form class="form-inline" id="predictionForm" ng-submit="submit(data)">
-
-		<div class="form-group col-xs-12">
-				<label for="trend">Position</label>
-				<div class="btn-group" data-toggle="buttons" style="width:175px;" >
-				  <label class="btn btn-neon white active" style="width:50%;" ng-click="nCard.data.position = 'long';">
-				    <input type="radio" checked> Long
-				  </label>
-				  <label class="btn btn-neon white" style="width:50%;" ng-click="nCard.data.position = 'short';">
-				    <input type="radio"> Short
-				  </label>
+<div class="container-fluid">
+	<div class="row">
+		<form class="form-inline" id="predictionForm" ng-submit="submit(data)">
+			<div class="form-group col-xs-12">
+					<label for="trend">Position</label>
+					<div class="btn-group" data-toggle="buttons" style="width:175px;" >
+					  <label class="btn btn-neon white active" style="width:50%;" ng-click="nCard.data.position = 'long';">
+					    <input type="radio" class="hidden" checked> Long
+					  </label>
+					  <label class="btn btn-neon white" style="width:50%;" ng-click="nCard.data.position = 'short';">
+					    <input type="radio" class="hidden"> Short
+					  </label>
+				</div>
 			</div>
-		</div>
 
-	  <div class="form-group col-xs-12">
-	    <label for="coin">Coin</label>
-	    <select ng-model="nCard.data.coin" ng-click="clearPrediction();" ng-options="item.coin as item.coin for item in AllCoins.data" class="form-control select-neon" required style="width:175px; border-radius: 0 !important;"></select>
-	  </div>
+		  <div class="form-group col-xs-12">
+		    <label for="coin">Coin</label>
+		    <select ng-model="nCard.data.coin" ng-click="clearPrediction();" ng-options="item.coin as item.coin for item in AllCoins.data" class="form-control select-neon" required style="width:175px; border-radius: 0 !important;"></select>
+		  </div>
 
-	  <div class="form-group col-xs-12">
-	    <label for="close">Close</label>
-	    <input type="text" class="satoshi form-control input-neon" id="close" ng-model="nCard.data.close" required autocomplete="off">
-	  </div>
+		  <div class="form-group col-xs-12">
+		    <label for="close">Close</label>
+		    <input type="text" class="satoshi form-control input-neon" id="close" ng-model="nCard.data.close" required autocomplete="off">
+		  </div>
 
-	  <div class="form-group col-xs-12">
-	    <label for="close">Open</label>
-	    <input type="text" class="satoshi form-control input-neon" id="open" ng-model="nCard.data.open" required autocomplete="off">
-	  </div>
+		  <div class="form-group col-xs-12">
+		    <label for="open">Open</label>
+		    <input type="text" class="satoshi form-control input-neon" id="open" ng-model="nCard.data.open" required autocomplete="oqff">
+		  </div>
 
-	  <div class="form-group col-xs-12">
-	    <label for="close">Stop</label>
-	    <input type="text" class="satoshi form-control input-neon" id="stop" ng-model="nCard.data.stop" required autocomplete="off">
-	  </div>
+		  <div class="form-group col-xs-12">
+		    <label for="stop">Stop</label>
+		    <input type="text" class="satoshi form-control input-neon" id="stop" ng-model="nCard.data.stop" required autocomplete="off">
+		  </div>
 
-	  <div class="col-xs-12">
-	  	<br>
-	  	<button class="btn btn-neon" style="margin-left: 54px; width: 175px" 
-  			type="submit" value="submit"
-  			ng-disabled="userForm.$invalid">
-	  			Submit <i class="glyphicon glyphicon-arrow-right"></i>
-	  	</button>
-  	</div>
+		  <div class="form-group col-xs-12">
+		  	<label for="comment">Note</label>
+		  	<textarea class="form-control textarea-neon block" id="comment" ng-model="nCard.data.comment" maxlength="140" placeholder="Optional... share your reasoning."></textarea>
+		  </div>
 
-	</form>
+		  <div class="form-group col-xs-12">
+		  	<label for="comment"><i class="glyphicon glyphicon-arrow-right" ng-if="predictionForm.valid"></i></label>
+		  	<button class="btn btn-neon" type="submit" value="submit"
+	  			ng-disabled="predictionForm.$invalid">
+		  			Submit <i class="glyphicon glyphicon-arrow-right"></i>
+		  	</button>
+	  	</div>
+
+		</form>
+	</div>
 </div>
 
 <!--         E N D    P R E D I C T I O N    F O R M        

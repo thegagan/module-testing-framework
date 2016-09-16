@@ -1,45 +1,62 @@
 
-<h2>Login Page</h2>
+<h3 class="text-center" ng-show="!createMode">&ensp;Login Required</h3>
+<h3 class="text-center" ng-show="createMode">&ensp;Create an Account</h3>
+<br>
 
 
-<fieldset>
+<!-- <fieldset>
   <legend>Oauth</legend>
   <p>
-    <!--<button  class="btn btn-primary" ng-click="anonymousLogin()">Anonymous</button>
+    <button  class="btn btn-primary" ng-click="anonymousLogin()">Anonymous</button>
     <button  class="btn btn-primary" ng-click="oauthLogin('facebook')">Facebook</button>
     <button  class="btn btn-primary" ng-click="oauthLogin('google')">Google</button>
     <button  class="btn btn-primary" ng-click="oauthLogin('twitter')">Twitter</button>
-    <button  class="btn btn-primary" ng-click="oauthLogin('github')">GitHub</button>-->
+    <button  class="btn btn-primary" ng-click="oauthLogin('github')">GitHub</button>
   </p>
-</fieldset>
+</fieldset> -->
+<div class="container-fluid">
+  <div class="row">
+    <form role="form" id="loginForm" class="form-inline" novalidate>
+    
+      <div class="form-group col-xs-12" ng-hide="createMode">
+        <label for="loginEmail" class="text-center" tooltip data-toggle="tooltip" data-title="Email">
+          <i class="fa fa-envelope-o"></i>
+        </label>
+        <input id="loginEmail" required name="email" type="email" ng-model="email" class="form-control input-neon" />
+      </div>
 
-<form role="form" id="form" novalidate>
-  <p class="form-group">
-    <label for="loginEmail">email</label>
-    <input id="loginEmail" required name="email" type="email" ng-model="email" class="form-control" />
-  </p>
-  <p class="form-group" ng-cloak ng-show="createMode">
-    <label for="loginusername">username</label>
-    <input id="loginusername" required name="username" type="username" ng-model="username" class="form-control" />
-  </p>  
-  <p class="form-group">
-    <label for="loginPass">password</label>
-    <input id="loginPass" required name="pass" type="password" ng-model="pass" class="form-control" />
-  </p>
-  <p class="form-group" ng-cloak ng-show="createMode">
-    <label for="loginConfirm">confirm pass</label>
-    <input id="loginConfirm" required name="confirm" type="password" ng-model="confirm" class="form-control" />
-  </p>
+      <div class="form-group col-xs-12" ng-cloak ng-show="createMode">
+        <label for="loginusername" class="text-center" tooltip data-toggle="tooltip" data-title="Email">
+          <i class="fa fa-envelope-o"></i>
+        </label>
+        <input id="loginusername" required name="username" type="username" ng-model="username" class="form-control input-neon" />
+      </div>  
 
-  <p>
-    <button  class="btn btn-primary" ng-click="passwordLogin(email, pass)" ng-hide="createMode">Log In</button>
-    <button  class="btn btn-default" ng-click="createMode = true" ng-hide="createMode">Register</button>
-    <button  class="btn btn-primary" ng-cloak ng-show="createMode"
-            ng-click="createAccount(email, username, pass, confirm)">Create Account</button>
-    <button  class="btn btn-default" ng-cloak ng-show="createMode" ng-click="createMode = false">Cancel</button>
-  </p>
-</form>
-<p ng-show="err" class="bg-danger">{{err}}</p>
+      <div class="form-group col-xs-12">
+        <label for="loginPass" class="text-center" tooltip data-toggle="tooltip" data-title="password">
+          <i class="fa fa-key"></i>
+        </label>
+        <input id="loginPass" required name="pass" type="password" ng-model="pass" class="form-control input-neon" />
+      </div>
 
-<button id="signout" class="btn btn-primary" onclick="firebase.auth().signOut();initApp();">Log Out</button>
+      <div class="form-group col-xs-12" ng-cloak ng-show="createMode">
+        <label for="loginConfirm" class="text-center" tooltip data-toggle="tooltip" data-title="verify password">
+          <i class="fa fa-key"></i></label>
+        <input id="loginConfirm" required name="confirm" type="password" ng-model="confirm" class="form-control input-neon" />
+      </div>
 
+      <div class="form-group col-xs-12">
+        <div class="row" style="width: 175px; margin-left: 39px;">
+          <button  class="btn btn-neon white block" ng-cloak ng-show="createMode"
+              ng-click="createAccount(email, username, pass, confirm)">Create Account</button>
+          <button  class="btn btn-link gray block" ng-cloak ng-show="createMode" ng-click="createMode = false">Cancel</button>
+          <button class="btn btn-neon white block" ng-click="passwordLogin(email, pass)" ng-hide="createMode">Log In</button>
+          <button class="btn btn-link white block" ng-click="createMode = true" ng-hide="createMode">Register</button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+<p ng-show="err" class="red text-center" style="padding: 10px; border: 1px dotted red;">{{err.message}}</p>

@@ -35,13 +35,24 @@ angular.module('coinioApp')
       if(firebase.auth().currentUser) {
         console.log("User already signed in", firebase.auth().currentUser.uid)
       } else {
+        var email = username;
+        // var email = $scope.email;
+        var atpos = email.indexOf("@");
+        var dotpos = email.lastIndexOf(".");
         $scope.err = null;
+        if( !email ) {
+          $scope.err = 'You must provide an email';
+        }
+        if (atpos<1 || dotpos<atpos+2 || dotpos+2>=email.length) {
+          $scope.err = 'Email is invalid';
+        }
         if( !pass ) {
           $scope.err = 'Please enter a password';
         }
         else if( pass !== confirm ) {
           $scope.err = 'Passwords do not match';
-        } else if(pass.length < 6) {
+        } 
+        else if(pass.length < 6) {
           $scope.err = 'Passwords must be at least 6 characters';
         }
         else {
@@ -68,11 +79,8 @@ angular.module('coinioApp')
             .then(redirect, showError);
             
             //console.log("email/pass stored");
-
         }
-    }
-
-
+      }
 
       function storeUserData(userId, name, email) {
         firebase.database().ref('users/' + name).set({

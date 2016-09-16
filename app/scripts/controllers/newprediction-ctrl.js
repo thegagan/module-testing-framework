@@ -25,15 +25,20 @@ angular.module('coinioApp')
 			firebase.database().ref('predictions/').push(nCard.data, function(error) {
 				if (error) { 
 					SweetAlert.swal({
-					   title: "Uh oh!",
-					   text: "Something Went Wrong!",
-					   type: "error",
-					   showCancelButton: true,
-					   confirmButtonColor: "#DD6B55",
-					   confirmButtonText: "Clear Form",
-					   closeOnConfirm: true
+					  title: "Uh oh!",
+					  text: "Something Went Wrong!",
+					  type: "error",
+					  showCancelButton: true,
+					  confirmButtonColor: "#DD6B55",
+					  confirmButtonText: "Clear Form",
+					  closeOnConfirm: true
+					},
+				  function(isConfirm){ 
+				  	if (isConfirm) {
+					    $scope.clearForm();
+					  }
 					});
-				} 
+				}
 				else {
 					SweetAlert.swal("Success!", "Prediction Created!", "success");
 					$scope.clearForm(data);

@@ -10,8 +10,8 @@
 
 var app = angular.module("coinioApp");
 app.controller("MainCtrl", 
-[ "$scope", "pCard", "nCard", "AllCoins", "User", 
-function($scope, pCard, nCard, AllCoins, User) {
+[ "$scope", "Predictions", "AllCoins", "User", 
+function($scope, Predictions, AllCoins, User) {
 	$scope.awesomeThings = [
 	  "HTML5 Boilerplate",
 	  "AngularJS",
@@ -20,8 +20,7 @@ function($scope, pCard, nCard, AllCoins, User) {
 
 	$scope.AllCoins = AllCoins;
 	$scope.User = User;
-	$scope.pCard = pCard;
-	$scope.nCard = nCard;
+	$scope.Predictions = Predictions;
 
 	$scope.colorize = function(card) {
 		if (card.score > 0) {

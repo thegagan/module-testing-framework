@@ -7,12 +7,12 @@
  * # cardpredictionService
  * Service in the coinioApp.
  */
-angular.module('coinioApp').service('pCard', function (nCard, User) {
+angular.module('coinioApp').service('Predictions', function (User) {
     
   	// 	var _url = 'https://coin-io.firebaseio.com/predictions';
 		// var _ref = new Firebase(_url)
   	
-  	var initialData = [
+  	var predictions = [
 			{
 				"userName": User.data.name,
 				"userId": User.data.id,
@@ -44,40 +44,48 @@ angular.module('coinioApp').service('pCard', function (nCard, User) {
 				"fud": "50",
 			}
   	];
+		
+		// TEMPORARY until connected to firebase Users table
+  	var currentUser = "DummyGuy";
 
-  	var predictions;
-  	(function() {
-  		predictions.push(initialData)
-  	});
-
-  	var newPrediction = {
-			"userName": nCard.userName,
-			"userId": User.data.name,
-			"userPts": User.data.pts,
-			"userLvl": User.data.lvl,
-			"coin": nCard.coin,
-			"status" : "true",
-			"position": nCard.position,     
-			"open": nCard.open,
-			"close": nCard.close,
-			"stop": nCard.stop,
-			"pts": "0",
-			"hype": "0",
-			"fud": "0",
-  	};
+  	// var newPrediction = {
+			// "userName": .userName,
+			// "userId": User.data.name,
+			// "userPts": User.data.pts,
+			// "userLvl": User.data.lvl,
+			// "coin": nCard.coin,
+			// "status" : "true",
+			// "position": nCard.position,     
+			// "open": nCard.open,
+			// "close": nCard.close,
+			// "stop": nCard.stop,
+			// "pts": "0",
+			// "hype": "0",
+			// "fud": "0",
+  	// };
 
   	return {
   		getData: function() {
   			predictions
   		},
-  		addItem: function(user,coin) {
+  		addItem: function(newPrediction) {
+  			var error = null;
+  			
   			for(var i=0; i<predictions.length; i++) {
-          if(predictions[i].userName == user && predictions[i].coin == coin && predictions[i].status == "true") {
-            alert('No can do! Only one perdiction per coin is allowed at any given time.');
-            break;
+          if(predictions[i] && 
+          	 predictions[i].userName == currentUser && 
+          	 predictions[i].coin == newPrediction.coin && 
+          	 predictions[i].status == "true") {
+          	 return true
+          	break;
           }
           else
+          	// PUSH NEW PREDICTION TO FIREBASE DATA FOR PREDICTIONS
+          	// firebase.database().ref('Predictions/').push(newPrediction, function(error) {
+          	// 	alert('error');
+          	// });
           	predictions.push(newPrediction);
+          	return false
         }
   		},
   		removeItem: function(user,coin) {

@@ -10,21 +10,22 @@ var errorCode;
 
 angular.module('coinioApp')
   .controller('LoginCtrl', function ($scope, Auth, $location, $q, Ref, $timeout) {
+
     $scope.oauthLogin = function(provider) {
       $scope.err = null;
-      Auth.$authWithOAuthPopup(provider, {rememberMe: true}).then(redirect, showError);
+      Auth.$signInWithPopup(provider);
     };
 
     $scope.anonymousLogin = function() {
       $scope.err = null;
-      Auth.$authAnonymously({rememberMe: true}).then(redirect, showError);
+      $signInAnonymously();
     };
 
     $scope.passwordLogin = function(email, pass) {
       $scope.err = null;
       firebase.auth().signInWithEmailAndPassword(email, pass).then(
         function(result) {
-          //console.log(result.uid);
+          console.log(result.uid);
         })
           .then(
         redirect, showError
@@ -35,8 +36,8 @@ angular.module('coinioApp')
       if(firebase.auth().currentUser) {
         console.log("User already signed in", firebase.auth().currentUser.uid)
       } else {
-        var email = username;
-        // var email = $scope.email;
+        // var email = username;
+        var email = $scope.email;
         var atpos = email.indexOf("@");
         var dotpos = email.lastIndexOf(".");
         $scope.err = null;
@@ -60,12 +61,9 @@ angular.module('coinioApp')
             // Handle Errors here.
             errorCode = error.code;
             var errorMessage = error.message;
-            console.log(errorCode);
-            //console.log("^1");
-            // ...
+            console.log("ERROR CODE: " + errorCode + " ERROR MSG: " + errorMessage);
             }).then(function () {
               // authenticate so we have permission to write to Firebase
-              //console.log("authenticate - (sign in)");
               return firebase.auth().signInWithEmailAndPassword(email, pass);
             })
             .then(
@@ -122,8 +120,6 @@ angular.module('coinioApp')
       var f = str.charAt(0).toUpperCase();
       return f + str.substr(1);
     }
-
-  
 
     function redirect() {
       $location.path('/account');

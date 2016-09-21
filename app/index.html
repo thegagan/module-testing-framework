@@ -22,53 +22,19 @@
     <script src="scripts/configfb.js"></script>
     <!-- <script src="http://requirejs.org/docs/release/2.1.11/minified/require.js"></script> -->
     <script type="text/javascript">
-        initApp = function() {
-          firebase.auth().onAuthStateChanged(function(user) {
-            if (user) {
-              // User is signed in.
-              var displayName = user.displayName;
-              var email = user.email;
-              var emailVerified = user.emailVerified;
-              var photoURL = user.photoURL;
-              var uid = user.uid;
-              var providerData = user.providerData;
+      firebase.auth().onAuthStateChanged(function(user) {        
+        if (user) {
+          // User is signed in.
+          console.log('INDEX: USER IS LOGGED IN AS ' + uid);
 
-              // checkDailyCo1ns();
-              
-              user.getToken().then(function(accessToken) {
-                //document.getElementById('sign-in-status').textContent = 'Signed in';
-                //document.getElementById('uid').textContent = uid;
-                //document.getElementById('account-details').textContent = JSON.stringify({
-                //  displayName: displayName,
-                //  email: email,
-                //  emailVerified: emailVerified,
-                //  photoURL: photoURL,
-                //  uid: uid,
-                //  accessToken: accessToken,
-                //  providerData: providerData
-                //}, null, '  ');
-              });
-              //console.log(uid);
-              // document.getElementById('form').style.visibility = 'hidden';
-              // document.getElementById('signout').style.visibility = 'visible';
-              // document.getElementById('test').textContent = user.email;
-            } else {
-              // User is signed out.
-              // document.getElementById('form').style.visibility = 'visible';
-              // document.getElementById('signout').style.visibility = 'hidden';
-              //document.getElementById('account-details').textContent = 'null';
-              
-            }
-          }, function(error) {
-            console.log(error);
-          });
-        };
-
-        window.addEventListener('load', function() {
-          initApp()
-        });
+        } else {
+          // User is signed out.
+          console.log('INDEX: USER IS NOT LOGGED IN');
+        }
+      }, function(error) {
+        console.log("ERROR BECAUSE " + error);
+      });
     </script>
-
   </head>
   <body ng-app="coinioApp">
     <div id="bg">

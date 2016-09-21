@@ -3,7 +3,7 @@
 <br><br><hr>
 <div class="clearfix"></div>
 
-<div ng-if="!firebase.auth().currentuser">
+<div ng-if="firebase.auth().currentuser">
 	<div class="col-xs-12">
 		<div id="navLinks">
 			<div class="centered">
@@ -39,7 +39,7 @@
 	<!--        P O L O N I E X    C H A T             -->
 </div>
 
-<div ng-if="firebase.auth().currentuser">
+<div ng-if="!firebase.auth().currentuser">
 	<div  class="col-xs-12">
 	<div ng-include="'views/login.html'" ng-controller="LoginCtrl"></div>
 	</div>

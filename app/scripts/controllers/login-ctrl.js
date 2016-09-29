@@ -37,7 +37,8 @@ angular.module('coinioApp')
         console.log("User already signed in", firebase.auth().currentUser.uid)
       } else {
         // var email = username;
-        var email = $scope.email;
+        // var email = $scope.email;
+        // alert($scope.username);
         var atpos = email.indexOf("@");
         var dotpos = email.lastIndexOf(".");
         $scope.err = null;
@@ -122,7 +123,7 @@ angular.module('coinioApp')
     }
 
     function redirect() {
-      $location.path('/account');
+      $location.path('/#');
     }
 
     function showError(err) {

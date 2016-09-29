@@ -22,14 +22,27 @@
     <script src="scripts/configfb.js"></script>
     <!-- <script src="http://requirejs.org/docs/release/2.1.11/minified/require.js"></script> -->
     <script type="text/javascript">
-      firebase.auth().onAuthStateChanged(function(user) {        
-        if (user) {
+      function checkUserAuthStatus() {
+        var userId = firebase.auth().currentUser;
+        console.log(JSON.stringify(firebase.auth().currentUser));
+        if (userId !== null && userId !== undefined) {
           // User is signed in.
-          console.log('INDEX: USER IS LOGGED IN AS ' + uid);
-
+          console.log('INDEX: USER IS LOGGED IN AS ' + userId);
         } else {
           // User is signed out.
           console.log('INDEX: USER IS NOT LOGGED IN');
+        }
+      };
+      checkUserAuthStatus();
+
+      firebase.auth().onAuthStateChanged(function(user) {        
+        if (user) {
+          // User is signed in.
+          console.log('INDEX: STATE CHANGE USER IS LOGGED IN AS ' + uid);
+
+        } else {
+          // User is signed out.
+          console.log('INDEX: STATE CHANGE USER IS NOT LOGGED IN');
         }
       }, function(error) {
         console.log("ERROR BECAUSE " + error);
@@ -42,12 +55,12 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
     <!-- Add your site or application content here -->
-    <div id="mainbody">
-      <div class="container">
-        <div ng-view=""></div>
+      <div id="mainbody">
+        <div class="container">
+          <div ng-view=""></div>
+        </div>
       </div>
     </div>
-</div>
   <!-- Google Analytics -->
   <script>
     !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){

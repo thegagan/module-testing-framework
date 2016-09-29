@@ -13,7 +13,8 @@ angular.module('coinioApp')
 	this.data = {
 		"id": "1",
 		"email": "dummy@email.com",
-		"name": "DummyGuy",
+		"name": "Joe Smith",
+		"username": "JuJuJoey",
 		"joined" : "dummydate",
 		"pts" : "69",
 		"lvl" : "101",

@@ -66,7 +66,42 @@ angular.module('coinioApp').service('Predictions', function (User) {
 
   	return {
   		getData: function() {
-  			predictions
+
+
+		 	var userRef = firebase.database().ref('users');
+			userRef.on('child_added', function(data) {
+				predictions = {
+					"close": data.val().close,
+					"coin": data.val().coin,
+					"open": data.val().open,
+					"position" : data.val().position,
+					"stop" : data.val().stop,
+					"timestamp" : data.val().timestamp,
+					"userId" : data.val().userId,
+					"userName" : data.val().userName
+				}
+				console.log(
+					data.key,
+					data.val().close,
+					data.val().coin,
+					data.val().open,
+					data.val().position
+					);
+			});
+			userRef.on('child_changed', function(data) {
+				predictions = {
+					"close": data.val().close,
+					"coin": data.val().coin,
+					"open": data.val().open,
+					"position" : data.val().position,
+					"stop" : data.val().stop,
+					"timestamp" : data.val().timestamp,
+					"userId" : data.val().userId,
+					"userName" : data.val().userName
+				}
+			});	
+
+  			console.log(JSON.toString(predictions));
   		},
   		addItem: function(newPrediction) {
   			var error = null;

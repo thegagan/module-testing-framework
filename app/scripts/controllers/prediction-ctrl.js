@@ -27,6 +27,7 @@ angular.module('coinioApp')
 			"pts": "0",
 			"hype": "0",
 			"fud": "0",
+			"timestamp": firebase.database.ServerValue.TIMESTAMP
     };
     $scope.newPrediction = newPrediction;
 

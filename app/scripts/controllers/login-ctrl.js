@@ -87,7 +87,7 @@ angular.module('coinioApp')
           email: email,
           co1ns: 0,
           co1nspent: 0,
-          dailyvisit: false,
+          lastlogin: firebase.database.ServerValue.TIMESTAMP,
           lvl: 0,
           pts: 0,
           joined: firebase.database.ServerValue.TIMESTAMP

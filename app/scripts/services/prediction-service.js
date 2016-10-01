@@ -11,45 +11,45 @@ angular.module('coinioApp').service('Predictions', function (User) {
     
   	// 	var _url = 'https://coin-io.firebaseio.com/predictions';
 		// var _ref = new Firebase(_url)
-  	
-  	var predictions = [
-			{
-				"userName": User.data.name,
-				"userId": User.data.id,
-				"userPts": User.data.pts,
-				"userLvl": User.data.lvl,
-				"coin": "BTC",
-				"status" : "true",
-				"position": "long",     
-				"open": ".00325",
-				"close": ".00452",
-				"stop": ".00306",
-				"pts": "3.65",
-				"hype": "50",
-				"fud": "10",
-			},
-			{
-				"userName": "UserName2",
-				"userId": "UserID2",
-				"userPts": "UserPts2",
-				"userLvl": "500",
-				"coin": "BTC",
-				"status" : "true",
-				"position": "long",     
-				"open": ".001",
-				"close": ".002",
-				"stop": ".0005",
-				"pts": "99",
-				"hype": "100",
-				"fud": "50",
-			}
-  	];
+  	var predictions = [];
+  	// var predictions = [
+			// {
+			// 	"userName": User.data.username,
+			// 	"userId": User.data.id,
+			// 	"userPts": User.data.pts,
+			// 	"userLvl": User.data.lvl,
+			// 	"coin": "BTC",
+			// 	"status" : "true",
+			// 	"position": "long",     
+			// 	"open": ".00325",
+			// 	"close": ".00452",
+			// 	"stop": ".00306",
+			// 	"pts": "3.65",
+			// 	"hype": "50",
+			// 	"fud": "10",
+			// },
+			// {
+			// 	"userName": "UserName2",
+			// 	"userId": "UserID2",
+			// 	"userPts": "UserPts2",
+			// 	"userLvl": "500",
+			// 	"coin": "BTC",
+			// 	"status" : "true",
+			// 	"position": "long",     
+			// 	"open": ".001",
+			// 	"close": ".002",
+			// 	"stop": ".0005",
+			// 	"pts": "99",
+			// 	"hype": "100",
+			// 	"fud": "50",
+			// }
+  	// ];
 		
 		// TEMPORARY until connected to firebase Users table
   	var currentUser = "DummyGuy";
 
   	// var newPrediction = {
-			// "userName": .userName,
+			// "username": .username,
 			// "userId": User.data.name,
 			// "userPts": User.data.pts,
 			// "userLvl": User.data.lvl,
@@ -64,9 +64,23 @@ angular.module('coinioApp').service('Predictions', function (User) {
 			// "fud": "0",
   	// };
 
+
   	return {
   		getData: function() {
 
+  		},
+  		addItem: function(newPrediction) {
+  			var error = null;
+  			
+  			for(var i=0; i<predictions.length; i++) {
+          if(predictions[i] && 
+          	 predictions[i].userName == currentUser && 
+          	 predictions[i].coin == newPrediction.coin && 
+          	 predictions[i].status == "true") {
+          	 return true
+          	break;
+          }
+          else
 
 		 	var userRef = firebase.database().ref('users');
 			userRef.on('child_added', function(data) {
@@ -78,7 +92,7 @@ angular.module('coinioApp').service('Predictions', function (User) {
 					"stop" : data.val().stop,
 					"timestamp" : data.val().timestamp,
 					"userId" : data.val().userId,
-					"userName" : data.val().userName
+					"username" : data.val().username
 				}
 				console.log(
 					data.key,
@@ -97,28 +111,10 @@ angular.module('coinioApp').service('Predictions', function (User) {
 					"stop" : data.val().stop,
 					"timestamp" : data.val().timestamp,
 					"userId" : data.val().userId,
-					"userName" : data.val().userName
+					"username" : data.val().username
 				}
 			});	
 
-  			console.log(JSON.toString(predictions));
-  		},
-  		addItem: function(newPrediction) {
-  			var error = null;
-  			
-  			for(var i=0; i<predictions.length; i++) {
-          if(predictions[i] && 
-          	 predictions[i].userName == currentUser && 
-          	 predictions[i].coin == newPrediction.coin && 
-          	 predictions[i].status == "true") {
-          	 return true
-          	break;
-          }
-          else
-          	// PUSH NEW PREDICTION TO FIREBASE DATA FOR PREDICTIONS
-          	// firebase.database().ref('Predictions/').push(newPrediction, function(error) {
-          	// 	alert('error');
-          	// });
           	predictions.push(newPrediction);
           	return false
         }

@@ -13,27 +13,28 @@ angular.module('coinioApp')
     $scope.User = User;
     $scope.AllCoins = AllCoins;
     $scope.Predictions = Predictions;
-    var newPrediction = {
-			"userName": User.data.userName,
-			"userId": User.data.name,
-			"userPts": User.data.pts,
-			"userLvl": User.data.lvl,
-			"coin": null,
-			"status" : "true",
-			"position": "long",     
-			"open": "",
-			"close": "",
-			"stop": "",
-			"pts": "0",
-			"hype": "0",
-			"fud": "0",
-			"timestamp": firebase.database.ServerValue.TIMESTAMP
-    };
+    var newPrediction = {};
+   //  var newPrediction = {
+			// "userName": User.data.userName,
+			// "userId": User.data.name,
+			// "userPts": User.data.pts,
+			// "userLvl": User.data.lvl,
+			// "coin": null,
+			// "status" : "true",
+			// "position": "long",     
+			// "open": "",
+			// "close": "",
+			// "stop": "",
+			// "pts": "0",
+			// "hype": "0",
+			// "fud": "0",
+			// "timestamp": firebase.database.ServerValue.TIMESTAMP
+   //  };
     $scope.newPrediction = newPrediction;
 
     // Submit New Predictions Form
     $scope.submit = function(newPrediction) {
-			Predictions.addItem(newPrediction)
+			Predictions.addItem(newPrediction);
 
 			console.log(Predictions.addItem(newPrediction));
 // GOTTA CAPTURE RESULT. SUCCESS OR FAILZOR

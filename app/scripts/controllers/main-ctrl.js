@@ -22,6 +22,17 @@ function($scope, Predictions, AllCoins, User) {
 	$scope.User = User;
 	$scope.Predictions = Predictions;
 
+	$scope.initUserAuth = function() {
+		if (firebase.auth().currentUser) {
+			$scope.firebaseUserAuth = firebase.auth().currentUser.uid;		
+		}
+		else {
+			$scope.firebaseUserAuth = null;
+		}
+	}
+	var initUserAuth = $scope.initUserAuth;
+	initUserAuth();
+
 	$scope.colorize = function(card) {
 		if (card.score > 0) {
 			return "green";
